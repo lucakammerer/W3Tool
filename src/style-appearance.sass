@@ -1,0 +1,241 @@
+// default
+$accent: #17a049
+$link: #2196F3
+
+// dark
+$logo: url("./assets/images/logo.png")
+$primary: rgb(31, 40, 51)
+$secondary: #141A21
+$text: #fff
+$filter: invert(0%)
+
+// light
+$logo-light: url("./assets/images/logo-light.png")
+$primary-light: #fafafa
+$secondary-light: #e4e5f1
+$text-light: #141A21
+$filter-light: invert(100%)
+
+// dark
+
+.dark
+  background: $secondary
+
+  input
+    background: $primary
+    color: $text
+
+  textarea
+    background: $primary
+    color: $text
+
+  app-header div
+    background: $secondary
+
+  footer
+    background: $secondary
+
+  footer svg
+    filter: $filter
+
+  #sidebar
+    background: $secondary
+
+  .main
+    background: $primary
+
+  a
+    color: $text
+
+  h1
+    color: $text
+
+  h2
+    color: $text
+
+  li
+    color: $text
+
+  p
+    color: $text
+
+  .box
+    color: $text
+    background: $secondary
+
+  .box input
+    background: $primary
+
+  .box select
+    background: $primary
+
+  fa-icon
+    color: $text
+
+  .dropdown-content
+    background-color: $primary
+    box-shadow: 0px 8px 16px 0px $secondary
+
+  .dropdown-content div
+    background: $secondary
+
+  .dropdown-content div:hover
+    background-color: $primary
+
+  .dropdown-content div
+    color: $text
+
+  .checkmark
+    background-color: $primary
+
+  .checkbox-cover:hover input ~ .checkmark
+    background-color: $primary
+
+  .checkbox-cover input:checked ~ .checkmark
+    background-color: $link
+
+  .checkbox-cover .checkmark:after
+    border: solid $primary
+
+  .link, .link-xl
+    color: $link
+
+  button[type='submit'], input[type='submit']
+    background-color: $accent
+
+  #logo
+    background-image: $logo
+
+  // home
+
+  .main-content
+    background: $primary
+
+  .explan-image
+    background: $secondary
+
+  #wave svg path
+    fill: $primary
+
+  // scrollbar
+
+  ::-webkit-scrollbar
+    background-color: $primary
+
+  ::-webkit-scrollbar-track
+    background-color: $secondary
+
+  ::-webkit-scrollbar-thumb
+    background-color: $secondary
+
+// light
+
+.light
+  background: $secondary-light
+
+  input
+    background: $primary-light
+    color: $text-light
+
+  textarea
+    background: $primary-light
+    color: $text-light
+
+  app-header div
+    background: $secondary-light
+
+  footer
+    background: $secondary-light
+
+  footer svg
+    filter: $filter-light
+
+  #sidebar
+    background: $secondary-light
+
+  .main
+    background: $primary-light
+
+  a
+    color: $text-light
+
+  h1
+    color: $text-light
+
+  h2
+    color: $text-light
+
+  li
+    color: $text-light
+
+  p
+    color: $text-light
+
+  .box
+    color: $text-light
+    background: $secondary-light
+
+  .box input
+    background: $primary-light
+
+  .box select
+    background: $primary-light
+
+  fa-icon
+    color: $text-light
+
+  .dropdown-content
+    background-color: $primary-light
+    box-shadow: 0px 8px 16px 0px $secondary-light
+
+  .dropdown-content div
+    background: $secondary-light
+
+  .dropdown-content div:hover
+    background-color: $primary-light
+
+  .dropdown-content div
+    color: $text-light
+
+  .checkmark
+    background-color: $primary-light
+
+  .checkbox-cover:hover input ~ .checkmark
+    background-color: $primary-light
+
+  .checkbox-cover input:checked ~ .checkmark
+    background-color: $link
+
+  .checkbox-cover .checkmark:after
+    border: solid $primary-light
+
+  .link, .link-xl
+    color: $link
+
+  button[type='submit'], input[type='submit']
+    background-color: $accent
+
+  #logo
+    background-image: $logo-light
+
+  // home
+
+  .main-content
+    background: $primary-light
+
+  .explan-image
+    background: $secondary-light
+
+  #wave svg path
+    fill: $primary-light
+
+  // scrollbar
+
+  ::-webkit-scrollbar
+    background-color: $primary-light
+
+  ::-webkit-scrollbar-track
+    background-color: $secondary-light
+
+  ::-webkit-scrollbar-thumb
+    background-color: $secondary-light

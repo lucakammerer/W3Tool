@@ -1,0 +1,30 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content text-center">
+    <div class="intro">
+      <h1>Color Picker</h1>
+      <p>Color Picker is a free online tool for picking a color and get the most common color formats.</p>
+    </div>
+    <canvas #canvas class="slider" width="500" height="250" (mousedown)="onMouseDown($event)"></canvas>
+    <h1>Selected Color:</h1>
+    <div class="grid grid-cols-2">
+      <div class="w-44 h-44 m-5 inline-block" [ngStyle]="{'background': color}"></div>
+      <div class="m-5">
+        <div class="m-5">
+          <p>HEX</p>
+          <p>{{hex}}</p>
+        </div>
+        <div class="m-5">
+          <p>RGB</p>
+          <p>{{color}}</p>
+        </div>
+        <div class="m-5">
+          <p>HSV</p>
+          <p>{{hsv}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

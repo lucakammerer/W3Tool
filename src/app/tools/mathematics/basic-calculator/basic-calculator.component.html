@@ -1,0 +1,15 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Basic Calculator</h1>
+      <p>Basic Calculator is a free online tool for basic mathematical operations.</p>
+    </div>
+    <input [placeholder]="0" [(ngModel)]="val" type="text">
+    <div id="calculator-keyboard">
+      <button (click)="calc($event)" *ngFor="let button of buttons">{{button}}</button>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

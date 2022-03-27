@@ -1,0 +1,16 @@
+<div class="fixed top-0 z-20 left-0 h-20 w-full shadow-lg text-center">
+  <div class="w-15 m-2.5 cursor-pointer display-inline float-left">
+    <a routerLink="/">
+      <div id="logo" class="p1" width="60" height="60"></div>
+    </a>
+  </div>
+  <div class="display-inline float-right">
+    <div class="dropdown">
+      <div class="dropbtn"><fa-icon class="header-btn" [icon]="faCircleHalfStroke"></fa-icon></div>
+      <div class="dropdown-content">
+        <div (click)="appearance.setCookie('appearance', false)">Dark Mode</div>
+        <div (click)="appearance.setCookie('appearance', true)">Light Mode</div>
+      </div>
+    </div>
+  </div>
+</div>

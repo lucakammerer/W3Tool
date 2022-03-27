@@ -1,0 +1,29 @@
+$small: 800px
+
+.main-content
+  padding: 10rem 0px
+
+.explan-item
+  display: grid
+  margin: 0 auto
+  width: 90%
+  grid-template-columns: repeat(2, minmax(0, 1fr))
+  padding: 10px
+
+.explan-image
+  padding: 32px
+  border-radius: 10px
+  width: 40%
+  display: block
+  margin: auto
+
+@media screen and (max-width: $small)
+  .explan-item
+    display: block
+    width: 80%
+    margin: auto
+    text-align: center
+
+  .explan-image
+    margin: 10px auto
+    width: 100%

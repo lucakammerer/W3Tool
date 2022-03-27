@@ -1,0 +1,55 @@
+<div *ngIf="isVisible === true; else invisible">
+  <div id="sidebar" class="block">
+    <div style="margin-top: 5rem">
+      <div class="search-box">
+        <input class="search-input" #input type="text" placeholder="Search for a tool ...">
+      </div>
+      <ul>
+        <li #listItem *ngFor="let x of items">
+          <span *ngIf="x[0].indexOf('-',0) === 0; else linkedItem"><h2 class="text-2xl px-2">{{x[0].substring(1)}}</h2></span>
+          <ng-template #linkedItem>
+            <span *ngIf="router.url === x[1]; else disabled">
+              <a [routerLink]="x[1]"><div id="{{x[0]}}" #active class="bg-white px-4 py-2 cursor-pointer text-green-600 shadow-md rounded-3xl m-2"><span>{{x[0]}}</span></div></a>
+            </span>
+            <ng-template #disabled>
+              <a [routerLink]="x[1]"><div id="{{x[0]}}" class="hover:bg-white hover:opacity-40 px-4 py-2 cursor-pointer hover:text-black rounded-3xl m-2"><span>{{x[0]}}</span></div></a>
+            </ng-template>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="sidebar-button" class="sidebar-button fixed left-64">
+    <div (click)="sidebarSwitch($event)">
+      <p>></p>
+    </div>
+  </div>
+</div>
+
+<ng-template #invisible>
+  <div id="sidebar" class="hidden">
+    <div style="margin-top: 5rem">
+      <div class="search-box">
+        <input class="search-input" #input type="text" placeholder="Search for a tool ...">
+      </div>
+      <ul>
+        <li #listItem *ngFor="let x of items">
+          <span *ngIf="x[0].indexOf('-',0) === 0; else linkedItem"><h2 class="text-2xl px-2">{{x[0].substring(1)}}</h2></span>
+          <ng-template #linkedItem>
+            <span *ngIf="router.url === x[1]; else disabled">
+              <a [routerLink]="x[1]"><div id="{{x[0]}}" #active class="bg-white px-4 hover:opacity-40 py-2 cursor-pointer text-green-600 shadow-md rounded-3xl m-2"><span>{{x[0]}}</span></div></a>
+            </span>
+            <ng-template #disabled>
+              <a [routerLink]="x[1]"><div id="{{x[0]}}" class="hover:bg-white hover:opacity-40 px-4 py-2 cursor-pointer hover:text-black rounded-3xl m-2"><span>{{x[0]}}</span></div></a>
+            </ng-template>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div id="sidebar-button" class="sidebar-button">
+    <div (click)="sidebarSwitch($event)">
+      <p>></p>
+    </div>
+  </div>
+</ng-template>

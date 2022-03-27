@@ -1,0 +1,20 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Word Counter</h1>
+      <p>Word Counter is a free online tool for counting words of large texts.</p>
+    </div>
+    <form [formGroup]="form">
+      <div class="box">
+        <textarea class="w-full h-screen p-2 outline-none" name="text" id="text" formControlName="text" placeholder="Paste in your code ..."></textarea>
+      </div>
+      <button (click)="minify()" type="submit">Minify</button>
+      <div class="box">
+        <p>{{result}}</p>
+      </div>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>

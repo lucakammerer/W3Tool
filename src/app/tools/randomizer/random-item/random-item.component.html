@@ -1,0 +1,19 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Random Item</h1>
+      <p>Random item is a free online tool for picking a random item from a list.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='generate()'>
+      <div class="box">
+        <label>From</label>
+        <input id="list" name="list" formControlName="list" placeholder="e.g. Dog, Cat, Hamster, ..." type="text">
+      </div>
+      <button type="submit">Pick</button>
+    </form>
+    <h1>{{result}}</h1>
+  </div>
+  <app-footer></app-footer>
+</div>

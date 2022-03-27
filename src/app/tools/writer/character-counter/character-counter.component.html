@@ -1,0 +1,19 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Character Counter</h1>
+      <p>Character Counter is a free online tool for counting characters of large texts.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='count()'>
+      <div class="box">
+        <textarea class="w-full h-screen p-2 outline-none" maxlength=5000 name="text" id="text" formControlName="text" placeholder="Paste in your text ... (up to 5000 characters)"></textarea>
+        <div></div>
+      </div>
+      <button type="submit">Count</button>
+      <h1>{{result}}</h1>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>

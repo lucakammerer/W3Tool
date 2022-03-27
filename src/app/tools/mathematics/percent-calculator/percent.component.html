@@ -1,0 +1,34 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Percentage Calculator</h1>
+      <p>Percentage Calculator is a free online tool for percentage calculations.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='calculate()'>
+      <fieldset formGroupName="value" class="box" id="calculate-value">
+        <label for="valuepercent">What is </label>
+        <input id="valuepercent" name="valuepercent" formControlName="valuepercent" type="number">
+        <label for="valueval"> % of </label>
+        <input id="valueval" name="valueval" formControlName="valueval" type="number">
+        <div class="text-center" id="value-answer">{{value}}</div>
+      </fieldset>
+      <fieldset formGroupName="percentage" class="box" id="calculate-percentage">
+        <input id="percentageval" name="percentageval" formControlName="percentageval" type="number">
+        <label for="percentagebase"> is what percent of </label>
+        <input id="percentagebase" name="percentagebase" formControlName="percentagebase" type="number">
+        <div class="text-center" id="percentage-answer">{{percentage}}</div>
+      </fieldset>
+      <fieldset formGroupName="basevalue" class="box" id="calculate-basevalue">
+        <label for="basevaluepercent">What is 100% from</label>
+        <input id="basevaluepercent" name="basevaluepercent" formControlName="basevaluepercent" type="number">
+        <label for="basevalueval"> % of </label>
+        <input id="basevalueval" name="basevalueval" formControlName="basevalueval" type="number" on>
+        <div class="text-center" id="basevalue-answer">{{basevalue}}</div>
+      </fieldset>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>

@@ -1,0 +1,23 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Random Number</h1>
+      <p>Random number is a free online tool for picking a random number.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='generate()'>
+      <div class="box">
+        <label>From</label>
+        <input id="first" name="first" formControlName="first" [(ngModel)]="defaultFirst" type="number">
+      </div>
+      <div class="box">
+        <label>To</label>
+        <input id="last" name="last" formControlName="last" [(ngModel)]="defaultLast" type="number">
+      </div>
+      <button type="submit">Generate</button>
+    </form>
+    <h1>{{result}}</h1>
+  </div>
+  <app-footer></app-footer>
+</div>
