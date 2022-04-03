@@ -9,7 +9,7 @@
     </div>
     <form [formGroup]="form" (ngSubmit)='convert()'>
       <div class="box">
-        <fieldset formGroupName="value" class="time-converter">
+        <fieldset formGroupName="value" class="currency-converter">
           <div class="inline-block m-4">
             <label>From:</label>
             <br>
@@ -23,7 +23,7 @@
         </fieldset>
       </div>
       <div class="box">
-        <fieldset formGroupName="selection" class="time-converter" id="select-value">
+        <fieldset formGroupName="selection" class="currency-converter" id="select-value">
           <select class="m-4" [(ngModel)]="defaultValues[0]" name="inputSelection" formControlName="inputSelection">
             <option *ngFor="let unit of units" [ngValue]="unit">{{unit}}</option>
           </select>

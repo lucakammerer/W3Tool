@@ -35,6 +35,7 @@
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
     "algoliasearch": "^4.12.2",
+    "colorsys": "^1.0.22",
     "express": "^4.15.2",
     "instantsearch.js": "^4.39.1",
     "ng-toolkit": "^0.0.1",
@@ -71,5 +72,18 @@
     "tailwindcss": "^3.0.15",
     "tslint-angular": "^3.0.3",
     "typescript": "~4.5.2"
-  }
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucakammerer/W3Tool.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucakammerer/W3Tool/issues"
+  },
+  "homepage": "https://github.com/lucakammerer/W3Tool#readme"
 }

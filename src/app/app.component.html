@@ -1,4 +1,4 @@
 <div [ngClass]="{'light': customAppearance===true, 'dark': customAppearance===false}">
   <router-outlet></router-outlet>
-  <app-cookie-popup [ngStyle]="{'display': customCookies===true ? 'none' : 'block'}"></app-cookie-popup>
+  <app-cookie-popup style="display: none" [ngStyle]="{'display': customCookies===true ? 'none' : 'block'}"></app-cookie-popup>
 </div>

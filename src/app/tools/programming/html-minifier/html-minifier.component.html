@@ -4,13 +4,13 @@
   <div class="content">
     <div class="intro">
       <h1>HTML Minifier</h1>
-      <p>HTML Minifier is a free online tool for minifying large HTML files.</p>
+      <p>HTML Minifier is a free online tool for minimize large HTML files.</p>
     </div>
     <form [formGroup]="form">
       <div class="box">
         <textarea class="w-full h-screen p-2 outline-none" name="text" id="text" formControlName="text" placeholder="Paste in your code ..."></textarea>
       </div>
-      <button (click)="minify()" type="submit">Minify</button>
+      <button (click)="minimize()" type="submit">Minify</button>
       <div class="box">
         <p>{{result}}</p>
       </div>

@@ -1,0 +1,42 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Color Converter</h1>
+      <p>Color Converter is a free online tool for converting different color units. With Color Conversion, slight color changes may appear in the transfer of the color.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='convert()'>
+      <div class="box justify-center text-center">
+        <p>Selected color:</p>
+        <div id="active" #active></div>
+      </div>
+      <div class="box">
+        <fieldset formGroupName="value" class="volume-converter">
+          <div class="inline-block m-4">
+            <label>From:</label>
+            <br>
+            <input [placeholder]="currentExample" type="text" name="inputValue" formControlName="inputValue">
+          </div>
+          <div class="inline-block m-4">
+            <label>To:</label>
+            <br>
+            <input type="text" [(ngModel)]="result" readonly name="outputValue" formControlName="outputValue">
+          </div>
+        </fieldset>
+      </div>
+      <div class="box">
+        <fieldset formGroupName="selection" class="volume-converter" id="select-value">
+          <select (change)="changeExample()" class="m-4" [(ngModel)]="selectedValues[0]" name="inputSelection" formControlName="inputSelection">
+            <option *ngFor="let unit of units" value="{{unit}}" [ngValue]="unit">{{unit}}</option>
+          </select>
+          <select (change)="changeExample()" class="m-4" [(ngModel)]="selectedValues[1]" name="outputSelection" formControlName="outputSelection">
+            <option *ngFor="let unit of units" value="{{unit}}" [ngValue]="unit">{{unit}}</option>
+          </select>
+        </fieldset>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>

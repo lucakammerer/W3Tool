@@ -1,24 +1,25 @@
+import { NumeralConvertComponent } from './numeral-convert.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BinaryConvertComponent } from './binary-convert.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SharedModule } from '../../../shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
+
 const routes: Routes = [
   {
     path: '',
-    component: BinaryConvertComponent,
+    component: NumeralConvertComponent,
   }
 ];
 
 @NgModule({
-  declarations: [BinaryConvertComponent],
+  declarations: [NumeralConvertComponent],
   imports: [
     SharedModule,
-    ReactiveFormsModule,
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild(routes),
   ]
 })
-export class BinaryConvertModule { }
+export class NumeralConvertModule { }

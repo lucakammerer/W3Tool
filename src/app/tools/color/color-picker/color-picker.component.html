@@ -1,29 +1,30 @@
 <app-header></app-header>
 <app-sidebar></app-sidebar>
-<div class="main">
+
+<div class="main left-0">
   <div class="content text-center">
     <div class="intro">
       <h1>Color Picker</h1>
       <p>Color Picker is a free online tool for picking a color and get the most common color formats.</p>
     </div>
-    <canvas #canvas class="slider" width="500" height="250" (mousedown)="onMouseDown($event)"></canvas>
-    <h1>Selected Color:</h1>
-    <div class="grid grid-cols-2">
-      <div class="w-44 h-44 m-5 inline-block" [ngStyle]="{'background': color}"></div>
-      <div class="m-5">
-        <div class="m-5">
-          <p>HEX</p>
-          <p>{{hex}}</p>
-        </div>
-        <div class="m-5">
-          <p>RGB</p>
-          <p>{{color}}</p>
-        </div>
-        <div class="m-5">
-          <p>HSV</p>
-          <p>{{hsv}}</p>
-        </div>
-      </div>
+    <div class="box color-wrapper">
+      <app-color-picker-palette [hue]="hue" (color)="color = $event"></app-color-picker-palette>
+      <app-color-picker-slider
+        (color)="hue=$event"
+        style="margin-left:16px"
+      ></app-color-picker-slider>
+    </div>
+    <div class="box input-wrapper">
+      <ul>
+        <li>RGB: {{color?.[0]}}</li>
+        <li>HEX: {{color?.[1]}}</li>
+        <li>CMYK: {{color?.[2]}}</li>
+        <li>HSV: {{color?.[3]}}</li>
+      </ul>
+      <div
+        class="color-div"
+        [ngStyle]="{'background-color': color?.[1] || 'white'}"
+      ></div>
     </div>
   </div>
   <app-footer></app-footer>

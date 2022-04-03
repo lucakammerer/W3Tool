@@ -34,9 +34,12 @@
               "src/assets/.htaccess"
             ],
             "styles": [
-              "src/styles.sass"
+              "src/styles.sass",
+              "src/assets/colorjoe/colorjoe.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/colorjoe/colorjoe.min.js"
+            ]
           },
           "configurations": {
             "production": {

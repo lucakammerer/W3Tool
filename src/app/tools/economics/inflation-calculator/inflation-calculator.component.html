@@ -1,0 +1,48 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<app-loading [style.display]="activity ? 'block' : 'none'" loadingMessage="Loading inflation rates ..."></app-loading>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Inflation Calculator</h1>
+      <p>Inflation Calculator is a free online tool for calculating inflation rates for a given amount of money over a given period of time.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='convert()'>
+      <div class="box">
+        <fieldset formGroupName="dates" class="inflation-converter">
+          <div class="inline-block m-4">
+            <label>From (Date):</label>
+            <br>
+            <input type="date" name="startValue" formControlName="startValue">
+          </div>
+          <div class="inline-block m-4">
+            <label>To (Date):</label>
+            <br>
+            <input type="date" name="endValue" formControlName="endValue">
+          </div>
+        </fieldset>
+        <div class="inline-block m-4">
+          <label>Amount:</label>
+          <br>
+          <input type="text" name="startPrice" formControlName="startPrice">
+        </div>
+        <div class="inline-block m-4">
+          <label>Country: </label>
+          <br>
+          <select class="m-4" [(ngModel)]="defaultValue" name="countrySelection" formControlName="countrySelection">
+            <option *ngFor="let unit of units" [ngValue]="unit">{{unit}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="box">
+        <div class="inline-block m-4">
+          <label>Result:</label>
+          <br>
+          <input type="text" [(ngModel)]="result" readonly name="outputValue" formControlName="outputValue">
+        </div>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>

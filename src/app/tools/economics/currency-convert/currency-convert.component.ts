@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MetaService } from 'src/app/services/meta.service';
+import apiKeys from 'src/assets/private/api-keys.json';
 
 @Component({
   selector: 'app-currency-convert',
@@ -38,6 +39,8 @@ export class CurrencyConvertComponent implements OnInit {
   currentValue = 0;
   result = "";
 
+  apiKey = ""
+
   constructor(
     public _metaTags: MetaService
   ) {
@@ -50,11 +53,11 @@ export class CurrencyConvertComponent implements OnInit {
   }
 
   async fetchFiatCurrency() {
-    let responseOne = await fetch("https://free.currconv.com/api/v7/convert?q=EUR_USD,AUD_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
-    let responseTwo = await fetch("https://free.currconv.com/api/v7/convert?q=CAD_USD,CHF_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
-    let responseThree = await fetch("https://free.currconv.com/api/v7/convert?q=CNY_USD,GBP_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
-    let responseFour = await fetch("https://free.currconv.com/api/v7/convert?q=INR_USD,JPY_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
-    let responseFive = await fetch("https://free.currconv.com/api/v7/convert?q=MXN_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
+    let responseOne = await fetch("https://free.currconv.com/api/v7/convert?q=EUR_USD,AUD_USD&compact=ultra&apiKey=" + this.apiKey)
+    let responseTwo = await fetch("https://free.currconv.com/api/v7/convert?q=CAD_USD,CHF_USD&compact=ultra&apiKey=" + this.apiKey)
+    let responseThree = await fetch("https://free.currconv.com/api/v7/convert?q=CNY_USD,GBP_USD&compact=ultra&apiKey=" + this.apiKey)
+    let responseFour = await fetch("https://free.currconv.com/api/v7/convert?q=INR_USD,JPY_USD&compact=ultra&apiKey=" + this.apiKey)
+    let responseFive = await fetch("https://free.currconv.com/api/v7/convert?q=MXN_USD&compact=ultra&apiKey=" + this.apiKey)
     let dataOne = await responseOne.json()
     let dataTwo = await responseTwo.json()
     let dataThree = await responseThree.json()
@@ -137,6 +140,7 @@ export class CurrencyConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.apiKey = apiKeys["currency"]
   }
 
 }

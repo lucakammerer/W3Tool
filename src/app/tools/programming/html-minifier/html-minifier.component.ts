@@ -17,16 +17,16 @@ export class HtmlMinifierComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Word Counter - W3Tool',
+      title: 'HTML Minifier - W3Tool',
       date: new Date(),
-      description: 'Word Counter is a free online tool for counting words of large texts',
+      description: 'Minimize your HTML code for a better performance. HTML Minifier is a free online tool for minimizing large HTML files.',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
     });
   }
 
   result = ""
 
-  minify() {
+  minimize() {
     this.result = this.form.value.text
       .replace(/\<\!--\s*?[^\s?\[][\s\S]*?--\>/g,'')
       .replace(/\>\s*\</g,'><');

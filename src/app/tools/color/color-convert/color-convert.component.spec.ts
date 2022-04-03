@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HexadecimalConvertComponent } from './hexadecimal-convert.component';
+import { ColorConvertComponent } from './color-convert.component';
 
-describe('HexadecimalConvertComponent', () => {
-  let component: HexadecimalConvertComponent;
-  let fixture: ComponentFixture<HexadecimalConvertComponent>;
+describe('ColorConvertComponent', () => {
+  let component: ColorConvertComponent;
+  let fixture: ComponentFixture<ColorConvertComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HexadecimalConvertComponent ]
+      declarations: [ ColorConvertComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HexadecimalConvertComponent);
+    fixture = TestBed.createComponent(ColorConvertComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

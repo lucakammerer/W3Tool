@@ -15,8 +15,6 @@ const routes: Routes = [
   { path: 'random-character', loadChildren: () => import('./tools/randomizer/random-character/random-character.module').then(m => m.RandomCharacterModule) },
   { path: 'random-password', loadChildren: () => import('./tools/randomizer/random-password/random-password.module').then(m => m.RandomPasswordModule) },
   { path: 'random-item', loadChildren: () => import('./tools/randomizer/random-item/random-item.module').then(m => m.RandomItemModule) },
-  { path: 'hexadecimal-convert', loadChildren: () => import('./tools/programming/hexadecimal-convert/hexadecimal-convert.module').then(m => m.HexadecimalConvertModule) },
-  { path: 'binary-convert', loadChildren: () => import('./tools/programming/binary-convert/binary-convert.module').then(m => m.BinaryConvertModule) },
   { path: 'energy-convert', loadChildren: () => import('./tools/mathematics/energy-convert/energy-convert.module').then(m => m.EnergyConvertModule) },
   { path: 'temperature-convert', loadChildren: () => import('./tools/mathematics/temperature-convert/temperature-convert.module').then(m => m.TemperatureConvertModule) },
   { path: 'length-convert', loadChildren: () => import('./tools/mathematics/length-convert/length-convert.module').then(m => m.LengthConvertModule) },
@@ -42,6 +40,9 @@ const routes: Routes = [
   { path: 'js-minifier', loadChildren: () => import('./tools/programming/js-minifier/js-minifier.module').then(m => m.JsMinifierModule) },
   { path: 'css-minifier', loadChildren: () => import('./tools/programming/css-minifier/css-minifier.module').then(m => m.CssMinifierModule) },
   { path: 'html-minifier', loadChildren: () => import('./tools/programming/html-minifier/html-minifier.module').then(m => m.HtmlMinifierModule) },
+  { path: 'color-convert', loadChildren: () => import('./tools/color/color-convert/color-convert.module').then(m => m.ColorConvertModule) },
+  { path: 'numeral-convert', loadChildren: () => import('./tools/programming/numeral-convert/numeral-convert.module').then(m => m.NumeralConvertModule) },
+  { path: 'inflation-calculator', loadChildren: () => import('./tools/economics/inflation-calculator/inflation-calculator.module').then(m => m.InflationCalculatorModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

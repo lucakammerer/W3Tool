@@ -17,16 +17,16 @@ export class CssMinifierComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Word Counter - W3Tool',
+      title: 'CSS Minifier - W3Tool',
       date: new Date(),
-      description: 'Word Counter is a free online tool for counting words of large texts',
+      description: 'Minimize your CSS files for faster website speed. CSS Minifier is a free online tool for minimizing large CSS files.',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
     });
   }
 
   result = ""
 
-  minify() {
+  minimize() {
     this.result = this.form.value.text
       .replace( /\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '' )
       .replace( / {2,}/g, ' ' )

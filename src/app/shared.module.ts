@@ -13,6 +13,8 @@ import { AppearanceService } from './services/appearance.service';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ColorPickerSliderComponent } from './tools/color/color-picker/color-picker-slider/color-picker-slider.component';
+import { ColorPickerPaletteComponent } from './tools/color/color-picker/color-picker-palette/color-picker-palette.component';
 
 // Factory function required during AOT compilation
 export function httpTranslateLoaderFactory(http: HttpClient) {
@@ -43,6 +45,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
       FooterComponent,
       LoadingComponent,
       CookiePopupComponent,
+      ColorPickerSliderComponent,
+      ColorPickerPaletteComponent,
   ],
   exports: [
       FontAwesomeModule,
@@ -52,6 +56,8 @@ export function httpTranslateLoaderFactory(http: HttpClient) {
       LoadingComponent,
       FooterComponent,
       CookiePopupComponent,
+      ColorPickerSliderComponent,
+      ColorPickerPaletteComponent,
   ]
 })
 export class SharedModule {}

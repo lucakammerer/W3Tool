@@ -10,8 +10,7 @@ export const tools = [
   ["Volume Converter", "/volume-convert"],
 
   ["-Programming"],
-  ["Binary Converter", "/binary-convert"],
-  ["Hexadecimal Converter", "/hexadecimal-convert"],
+  ["Numerial System Converter", "/numeral-convert"],
   ["HTML Minifier", "/html-minifier"],
   ["JavaScript Minifier", "/js-minifier"],
   ["CSS Minifier", "/css-minifier"],
@@ -19,6 +18,7 @@ export const tools = [
   ["-Economics"],
   ["Currency Converter", "/currency-convert"],
   ["Cryptocurrency Converter", "/cryptocurrency-convert"],
+  ["Inflation Calculator", "/inflation-calculator"],
 
   ["-Writing"],
   ["Character Counter", "/character-counter"],
@@ -27,6 +27,7 @@ export const tools = [
 
   ["-Color"],
   ["Color Picker", "/color-picker"],
+  ["Color Converter", "/color-convert"],
 
   ["-Ramdomizer"],
   ["Character Randomizer", "/random-character"],

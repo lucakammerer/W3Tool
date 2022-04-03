@@ -85,17 +85,3 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     })
   }
 }
-
-
-
-
-
-/**
- *
- * TODO:
- *
- * Terms of use, cookies, etc bar
- *
- *
- *
- */

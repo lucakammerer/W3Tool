@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BinaryConvertComponent } from './binary-convert.component';
+import { ColorPickerPaletteComponent } from './color-picker-palette.component';
 
-describe('BinaryConvertComponent', () => {
-  let component: BinaryConvertComponent;
-  let fixture: ComponentFixture<BinaryConvertComponent>;
+describe('ColorPickerPaletteComponent', () => {
+  let component: ColorPickerPaletteComponent;
+  let fixture: ComponentFixture<ColorPickerPaletteComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BinaryConvertComponent ]
+      declarations: [ ColorPickerPaletteComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BinaryConvertComponent);
+    fixture = TestBed.createComponent(ColorPickerPaletteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

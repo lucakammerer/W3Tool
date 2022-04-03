@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MetaService } from 'src/app/services/meta.service';
+import apiKeys from 'src/assets/private/api-keys.json';
 
 @Component({
   selector: 'app-cryptocurrency-convert',
@@ -59,6 +60,9 @@ export class CryptocurrencyConvertComponent implements OnInit {
   currentValue = 0;
   result = "";
 
+  apiKeyCrypto = ""
+  apiKeyFiat = ""
+
   constructor(
     public _metaTags: MetaService
   ) {
@@ -75,14 +79,14 @@ export class CryptocurrencyConvertComponent implements OnInit {
   }
 
   async fetchCryptocurrency() {
-    let response = await fetch("https://api.nomics.com/v1/currencies/ticker?key=2549049f20f37aeccd7f9298fbaa4b6ba1d258c2&ids=BTC,ETH,USDT,BNB,USDC,XRP,LUNA,ADA,SOL,AVAX,DOT,BUSD,DOGE,UST,SHIB,MATIC,WBTC,DAI,CRO,ATOM,LTC,NEAR,LINK,TRX,UNI&interval=1s,1d&convert=USD&per-page=100&page=1")
+    let response = await fetch("https://api.nomics.com/v1/currencies/ticker?key=" + this.apiKeyCrypto + "&ids=BTC,ETH,USDT,BNB,USDC,XRP,LUNA,ADA,SOL,AVAX,DOT,BUSD,DOGE,UST,SHIB,MATIC,WBTC,DAI,CRO,ATOM,LTC,NEAR,LINK,TRX,UNI&interval=1s,1d&convert=USD&per-page=100&page=1")
     let data = await response.json()
     return data;
   }
 
   async fetchFiatCurrency() {
-    let responseOne = await fetch("https://free.currconv.com/api/v7/convert?q=EUR_USD,AUD_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
-    let responseTwo = await fetch("https://free.currconv.com/api/v7/convert?q=CAD_USD,CHF_USD&compact=ultra&apiKey=584a8121e37bb7a53568")
+    let responseOne = await fetch("https://free.currconv.com/api/v7/convert?q=EUR_USD,AUD_USD&compact=ultra&apiKey=" + this.apiKeyFiat)
+    let responseTwo = await fetch("https://free.currconv.com/api/v7/convert?q=CAD_USD,CHF_USD&compact=ultra&apiKey=" + this.apiKeyFiat)
     let dataOne = await responseOne.json()
     let dataTwo = await responseTwo.json()
     return [dataOne, dataTwo];
@@ -285,6 +289,8 @@ export class CryptocurrencyConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.apiKeyCrypto = apiKeys["cryptocurrency"]
+    this.apiKeyFiat = apiKeys["currency"]
   }
 
 }
