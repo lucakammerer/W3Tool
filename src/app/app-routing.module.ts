@@ -43,6 +43,7 @@ const routes: Routes = [
   { path: 'color-convert', loadChildren: () => import('./tools/color/color-convert/color-convert.module').then(m => m.ColorConvertModule) },
   { path: 'numeral-convert', loadChildren: () => import('./tools/programming/numeral-convert/numeral-convert.module').then(m => m.NumeralConvertModule) },
   { path: 'inflation-calculator', loadChildren: () => import('./tools/economics/inflation-calculator/inflation-calculator.module').then(m => m.InflationCalculatorModule) },
+  { path: 'weight-and-mass-convert', loadChildren: () => import('./tools/mathematics/weight-and-mass-convert/weight-and-mass-convert.module').then(m => m.WeightAndMassConvertModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

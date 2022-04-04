@@ -29,7 +29,7 @@
     <lastmod>2022-02-20</lastmod>
   </url>
   <url>
-    <loc>https://www.w3tool.net/percent-generator</loc>
+    <loc>https://www.w3tool.net/percent</loc>
     <lastmod>2022-02-20</lastmod>
   </url>
   <url>
@@ -103,5 +103,37 @@
   <url>
     <loc>https://www.w3tool.net/line-counter</loc>
     <lastmod>2022-02-20</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/contact</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/js-minifier</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/css-minifier</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/html-minifier</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/color-convert</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/numeral-convert</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/inflation-calculator</loc>
+    <lastmod>2022-04-4</lastmod>
+  </url>
+  <url>
+    <loc>https://www.w3tool.net/weight-and-mass-convert</loc>
+    <lastmod>2022-04-4</lastmod>
   </url>
 </urlset>

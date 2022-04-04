@@ -8,6 +8,7 @@ export const tools = [
   ["Temperature Converter", "/temperature-convert"],
   ["Time Converter", "/time-convert"],
   ["Volume Converter", "/volume-convert"],
+  ["Weight and Mass Converter", "/weight-and-mass-convert"],
 
   ["-Programming"],
   ["Numerial System Converter", "/numeral-convert"],
