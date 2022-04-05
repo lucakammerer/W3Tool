@@ -22,12 +22,8 @@ const routes: Routes = [
   { path: 'time-convert', loadChildren: () => import('./tools/mathematics/time-convert/time-convert.module').then(m => m.TimeConvertModule) },
   { path: 'cryptocurrency-convert', loadChildren: () => import('./tools/economics/cryptocurrency-convert/cryptocurrency-convert.module').then(m => m.CryptocurrencyConvertModule) },
   { path: 'currency-convert', loadChildren: () => import('./tools/economics/currency-convert/currency-convert.module').then(m => m.CurrencyConvertModule) },
-  { path: 'area-convert', loadChildren: () => import('./tools/mathematics/area-convert/area-convert.module').then(m => m.AreaConvertModule) },
   { path: 'force-convert', loadChildren: () => import('./tools/mathematics/force-convert/force-convert.module').then(m => m.ForceConvertModule) },
   { path: 'weight-and-mass-convert', loadChildren: () => import('./tools/mathematics/weight-and-mass-convert/weight-and-mass-convert.module').then(m => m.WeightAndMassConvertModule) },
-  { path: 'power-convert', loadChildren: () => import('./tools/mathematics/power-convert/power-convert.module').then(m => m.PowerConvertModule) },
-  { path: 'storage-convert', loadChildren: () => import('./tools/mathematics/storage-convert/storage-convert.module').then(m => m.StorageConvertModule) },
-  { path: 'pressure-convert', loadChildren: () => import('./tools/mathematics/pressure-convert/pressure-convert.module').then(m => m.PressureConvertModule) },
   { path: 'word-counter', loadChildren: () => import('./tools/writer/word-counter/word-counter.module').then(m => m.WordCounterModule) },
   { path: 'character-counter', loadChildren: () => import('./tools/writer/character-counter/character-counter.module').then(m => m.CharacterCounterModule) },
   { path: 'line-counter', loadChildren: () => import('./tools/writer/line-counter/line-counter.module').then(m => m.LineCounterModule) },
@@ -44,6 +40,10 @@ const routes: Routes = [
   { path: 'numeral-convert', loadChildren: () => import('./tools/programming/numeral-convert/numeral-convert.module').then(m => m.NumeralConvertModule) },
   { path: 'inflation-calculator', loadChildren: () => import('./tools/economics/inflation-calculator/inflation-calculator.module').then(m => m.InflationCalculatorModule) },
   { path: 'weight-and-mass-convert', loadChildren: () => import('./tools/mathematics/weight-and-mass-convert/weight-and-mass-convert.module').then(m => m.WeightAndMassConvertModule) },
+  { path: 'storage-convert', loadChildren: () => import('./tools/mathematics/storage-convert/storage-convert.module').then(m => m.StorageConvertModule) },
+  { path: 'pressure-convert', loadChildren: () => import('./tools/mathematics/pressure-convert/pressure-convert.module').then(m => m.PressureConvertModule) },
+  { path: 'power-convert', loadChildren: () => import('./tools/mathematics/power-convert/power-convert.module').then(m => m.PowerConvertModule) },
+  { path: 'area-convert', loadChildren: () => import('./tools/mathematics/area-convert/area-convert.module').then(m => m.AreaConvertModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

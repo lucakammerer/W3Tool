@@ -9,6 +9,10 @@ export const tools = [
   ["Time Converter", "/time-convert"],
   ["Volume Converter", "/volume-convert"],
   ["Weight and Mass Converter", "/weight-and-mass-convert"],
+  ["Storage Converter", "/storage-convert"],
+  ["Pressure Converter", "/pressure-convert"],
+  ["Power Converter", "/power-convert"],
+  ["Area Converter", "/area-convert"],
 
   ["-Programming"],
   ["Numerial System Converter", "/numeral-convert"],

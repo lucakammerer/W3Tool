@@ -32,7 +32,7 @@ export class WeightAndMassConvertComponent implements OnInit {
     _metaTags.setBasicMetaTags({
       title: 'Weight and Mass Convert - W3Tool',
       date: new Date(),
-      description: 'Weight and Mass is a free online tool for converting different weight and mass units',
+      description: 'Weight and Mass Converter is a free online tool for converting different weight and mass units',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
     });
   }

@@ -1,2 +1,38 @@
-<p>storage-convert works!</p>
-<app-footer></app-footer>
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>Storage Converter</h1>
+      <p>Storage Converter is a free online tool for converting different data storage units.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='convert()'>
+      <div class="box">
+        <fieldset formGroupName="value" class="converter">
+          <div class="inline-block m-4">
+            <label>From:</label>
+            <br>
+            <input type="number" name="inputValue" formControlName="inputValue">
+          </div>
+          <div class="inline-block m-4">
+            <label>To:</label>
+            <br>
+            <input type="text" [(ngModel)]="result" readonly name="outputValue" formControlName="outputValue">
+          </div>
+        </fieldset>
+      </div>
+      <div class="box">
+        <fieldset formGroupName="selection" class="converter" id="select-value">
+          <select class="m-4" [(ngModel)]="defaultValues[0]" name="inputSelection" formControlName="inputSelection">
+            <option *ngFor="let unit of units" [ngValue]="unit">{{unit}}</option>
+          </select>
+          <select class="m-4" [(ngModel)]="defaultValues[1]" name="outputSelection" formControlName="outputSelection">
+            <option *ngFor="let unit of units" [ngValue]="unit">{{unit}}</option>
+          </select>
+        </fieldset>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>
