@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'time-convert', loadChildren: () => import('./tools/mathematics/time-convert/time-convert.module').then(m => m.TimeConvertModule) },
   { path: 'cryptocurrency-convert', loadChildren: () => import('./tools/economics/cryptocurrency-convert/cryptocurrency-convert.module').then(m => m.CryptocurrencyConvertModule) },
   { path: 'currency-convert', loadChildren: () => import('./tools/economics/currency-convert/currency-convert.module').then(m => m.CurrencyConvertModule) },
-  { path: 'force-convert', loadChildren: () => import('./tools/mathematics/force-convert/force-convert.module').then(m => m.ForceConvertModule) },
   { path: 'weight-and-mass-convert', loadChildren: () => import('./tools/mathematics/weight-and-mass-convert/weight-and-mass-convert.module').then(m => m.WeightAndMassConvertModule) },
   { path: 'word-counter', loadChildren: () => import('./tools/writer/word-counter/word-counter.module').then(m => m.WordCounterModule) },
   { path: 'character-counter', loadChildren: () => import('./tools/writer/character-counter/character-counter.module').then(m => m.CharacterCounterModule) },
@@ -44,6 +43,7 @@ const routes: Routes = [
   { path: 'pressure-convert', loadChildren: () => import('./tools/mathematics/pressure-convert/pressure-convert.module').then(m => m.PressureConvertModule) },
   { path: 'power-convert', loadChildren: () => import('./tools/mathematics/power-convert/power-convert.module').then(m => m.PowerConvertModule) },
   { path: 'area-convert', loadChildren: () => import('./tools/mathematics/area-convert/area-convert.module').then(m => m.AreaConvertModule) },
+  { path: 'force-convert', loadChildren: () => import('./tools/mathematics/force-convert/force-convert.module').then(m => m.ForceConvertModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

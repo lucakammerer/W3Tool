@@ -13,6 +13,7 @@ export const tools = [
   ["Pressure Converter", "/pressure-convert"],
   ["Power Converter", "/power-convert"],
   ["Area Converter", "/area-convert"],
+  ["Force Converter", "/force-convert"],
 
   ["-Programming"],
   ["Numerial System Converter", "/numeral-convert"],
