@@ -46,6 +46,8 @@ const routes: Routes = [
   { path: 'area-convert', loadChildren: () => import('./tools/engineering/area-convert/area-convert.module').then(m => m.AreaConvertModule) },
   { path: 'base64-encoding', loadChildren: () => import('./tools/programming/base64-encoding/base64-encoding.module').then(m => m.Base64EncodingModule) },
   { path: 'base64-decoding', loadChildren: () => import('./tools/programming/base64-decoding/base64-decoding.module').then(m => m.Base64DecodingModule) },
+  { path: 'uri-encoding', loadChildren: () => import('./tools/programming/uri-encoding/uri-encoding.module').then(m => m.UriEncodingModule) },
+  { path: 'uri-decoding', loadChildren: () => import('./tools/programming/uri-decoding/uri-decoding.module').then(m => m.UriDecodingModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

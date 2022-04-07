@@ -23,6 +23,8 @@ export const tools = [
   ["Storage Converter", "/storage-convert"],
   ["Base64 Encoding", "/base64-encoding"],
   ["Base64 Decoding", "/base64-decoding"],
+  ["URI Encoding", "/uri-encoding"],
+  ["URI Decoding", "/uri-decoding"],
 
   ["-Financial"],
   ["Currency Converter", "/currency-convert"],

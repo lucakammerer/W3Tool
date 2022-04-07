@@ -3,14 +3,14 @@
 <div class="main">
   <div class="content">
     <div class="intro">
-      <h1>Base64 Decoder</h1>
-      <p>The Base64 Decoder is a free online tool for encoding a text to base64 or decoding base64 to a text.</p>
+      <h1>URI Encoder</h1>
+      <p>URI Encoder is a free online tool for encoding a text to an URI.</p>
     </div>
     <form [formGroup]="form">
       <div class="box">
         <textarea class="w-full h-96 p-2 outline-none" name="text" id="text" formControlName="text" placeholder="Paste in your text ..."></textarea>
       </div>
-      <button (click)="decoding()" type="submit">Decoding</button>
+      <button (click)="encoding()" type="submit">Encoding</button>
       <div class="box">
         <p>{{result}}</p>
       </div>
