@@ -51,6 +51,9 @@ const routes: Routes = [
   { path: 'ascii-encoding', loadChildren: () => import('./tools/programming/ascii-encoding/ascii-encoding.module').then(m => m.AsciiEncodingModule) },
   { path: 'ascii-decoding', loadChildren: () => import('./tools/programming/ascii-decoding/ascii-decoding.module').then(m => m.AsciiDecodingModule) },
   { path: 'magnet-convert', loadChildren: () => import('./tools/engineering/magnet-convert/magnet-convert.module').then(m => m.MagnetConvertModule) },
+  { path: 'text-reverse', loadChildren: () => import('./tools/writer/text-reverse/text-reverse.module').then(m => m.TextReverseModule) },
+  { path: 'text-uppercase', loadChildren: () => import('./tools/writer/text-uppercase/text-uppercase.module').then(m => m.TextUppercaseModule) },
+  { path: 'text-lowercase', loadChildren: () => import('./tools/writer/text-lowercase/text-lowercase.module').then(m => m.TextLowercaseModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

@@ -38,6 +38,9 @@ export const tools = [
   ["Character Counter", "/character-counter"],
   ["Word Counter", "/word-counter"],
   ["Line Counter", "/line-counter"],
+  ["Text Reverse", "/text-reverse"],
+  ["Text Lowercase", "/text-lowercase"],
+  ["Text Uppercase", "/text-uppercase"],
 
   ["-Color"],
   ["Color Picker", "/color-picker"],
