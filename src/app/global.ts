@@ -25,6 +25,8 @@ export const tools = [
   ["Base64 Decoding", "/base64-decoding"],
   ["URI Encoding", "/uri-encoding"],
   ["URI Decoding", "/uri-decoding"],
+  ["ASCII Encoding", "/ascii-encoding"],
+  ["ASCII Decoding", "/ascii-decoding"],
 
   ["-Financial"],
   ["Currency Converter", "/currency-convert"],

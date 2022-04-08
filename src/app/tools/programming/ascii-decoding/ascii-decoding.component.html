@@ -3,12 +3,12 @@
 <div class="main">
   <div class="content">
     <div class="intro">
-      <h1>URI Decoder</h1>
-      <p>URI Decoder is a free online tool for encoding an URI to a text.</p>
+      <h1>ASCII Decoder</h1>
+      <p>The ASCII Decoder is a free online tool for decoding a list of ASCII characters to a text.</p>
     </div>
     <form [formGroup]="form">
       <div class="box">
-        <textarea class="w-full h-96 p-2 outline-none" name="text" id="text" formControlName="text" placeholder="Paste in your text ..."></textarea>
+        <textarea class="w-full h-96 p-2 outline-none" name="text" id="text" formControlName="text" placeholder="Paste in your ASCII characters ... (e.g. 84 101 115 116)"></textarea>
       </div>
       <button (click)="decoding()" type="submit">Decode</button>
       <div class="box">
