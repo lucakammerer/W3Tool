@@ -17,7 +17,7 @@ export class AsciiEncodingComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'ASCII Encoder',
+      title: 'ASCII Encoder - W3Tool',
       date: new Date(),
       description: 'ASCII Encoder is a free online tool for encoding a text into a list of ASCII characters.',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]

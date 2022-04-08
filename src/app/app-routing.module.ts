@@ -50,6 +50,7 @@ const routes: Routes = [
   { path: 'uri-decoding', loadChildren: () => import('./tools/programming/uri-decoding/uri-decoding.module').then(m => m.UriDecodingModule) },
   { path: 'ascii-encoding', loadChildren: () => import('./tools/programming/ascii-encoding/ascii-encoding.module').then(m => m.AsciiEncodingModule) },
   { path: 'ascii-decoding', loadChildren: () => import('./tools/programming/ascii-decoding/ascii-decoding.module').then(m => m.AsciiDecodingModule) },
+  { path: 'magnet-convert', loadChildren: () => import('./tools/engineering/magnet-convert/magnet-convert.module').then(m => m.MagnetConvertModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

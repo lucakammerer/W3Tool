@@ -17,7 +17,7 @@ export class Base64EncodingComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Base64 Encoder',
+      title: 'Base64 Encoder - W3Tool',
       date: new Date(),
       description: 'Base64 Encoder is a free online tool for encoding a text to base64.',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
