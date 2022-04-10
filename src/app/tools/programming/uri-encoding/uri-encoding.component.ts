@@ -20,7 +20,7 @@ export class UriEncodingComponent implements OnInit {
       title: 'URI Encoder',
       date: new Date(),
       description: 'URI Encoder is a free online tool for encoding a text to an URI.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      keywords: ["uri encoder", "free uri encoder", "uri code encoder", "uri encoder tool", "encoding tool", "online tool"]
     });
   }
 

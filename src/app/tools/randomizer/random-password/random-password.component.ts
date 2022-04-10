@@ -28,10 +28,10 @@ export class RandomPasswordComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Random Password - W3Tool',
+      title: 'Random Password Generator - Generate strong random passwords',
       date: new Date(),
-      description: 'Random password is a free online tool for generating secure passwords',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Random password is a free online tool for generating secure and strong passwords with specialcharacters, numbers and uppercase letters.',
+      keywords: ["random password generator", "free random password generator picker", "randomizer", "random password generator tool", "random picker tool", "online tool"]
     });
   }
 

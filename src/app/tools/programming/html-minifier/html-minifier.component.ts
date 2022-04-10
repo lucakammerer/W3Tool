@@ -17,10 +17,10 @@ export class HtmlMinifierComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'HTML Minifier - W3Tool',
+      title: 'HTML Minifier and Compressor',
       date: new Date(),
-      description: 'Minimize your HTML code for a better performance. HTML Minifier is a free online tool for minimizing large HTML files.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Minimize and compress your HTML code for a better website performance. HTML Minifier is a free online tool for minimizing large HTML files.',
+      keywords: ["html minifier", "free html minify", "html code compressor", "html minifier tool", "minify tool", "online tool"]
     });
   }
 

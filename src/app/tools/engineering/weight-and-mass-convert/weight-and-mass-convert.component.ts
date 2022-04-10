@@ -30,10 +30,10 @@ export class WeightAndMassConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Weight and Mass Convert - W3Tool',
+      title: 'Weight and Mass Converter - Convert Weight and Mass units',
       date: new Date(),
-      description: 'Weight and Mass Converter is a free online tool for converting different weight and mass units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Weight and Mass Converter is a free tool for converting between kilogram, gram, milligram, ton, ounce, carat and more weight and mass units.',
+      keywords: ["weight and mass unit converter", "free weight and mass converter", "weight and mass converter", "weight and mass conversion tool", "conversion tool", "online tool"]
     });
   }
 

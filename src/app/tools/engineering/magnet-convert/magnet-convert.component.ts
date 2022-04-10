@@ -30,10 +30,10 @@ export class MagnetConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Magnet Converter - W3Tool',
+      title: 'Magnetic Units Converter - Convert different magnet units',
       date: new Date(),
-      description: 'Magnet Converter is a free online tool for converting different magnet units.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Magnetic unit converter is a free tool for converting between Tesla, Millitesla, Ampere per Meter, Gauss and more.',
+      keywords: ["magnetic unit converter", "free length converter", "magnet converter", "magnet conversion", "conversion tool", "online tool"]
     });
   }
 

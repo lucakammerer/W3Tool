@@ -29,10 +29,10 @@ export class TemperatureConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Temperature Convert - W3Tool',
+      title: 'Temperature Converter',
       date: new Date(),
-      description: 'Temperature Converter is a free online tool for converting different temperature units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Temperature Conversion Tool is a free tool to convert between Kelvin, Celsius, Fahrenheit, Rankine and other temperature units.',
+      keywords: ["temperature unit converter", "free temperature converter", "temperature converter", "temperature conversion tool", "conversion tool", "online tool"]
     });
   }
 

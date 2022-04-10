@@ -16,10 +16,10 @@ export class CharacterCounterComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Character Counter - W3Tool',
+      title: 'Character Counter - Count the character of a text',
       date: new Date(),
-      description: 'Character Counter is a free online tool for counting characters of large texts',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Character Counter is a free tool for counting the characters of large texts',
+      keywords: ["character counter", "free character counter", "counting characters", "char counter tool", "character counting tool", "online tool"]
     });
   }
 

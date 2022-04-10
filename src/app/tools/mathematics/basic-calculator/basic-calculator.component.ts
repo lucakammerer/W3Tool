@@ -15,10 +15,10 @@ export class BasicCalculatorComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Basic Calculator - W3Tool',
+      title: 'Basic Calculator - Simple calculator for basic math operations',
       date: new Date(),
-      description: 'Basic Calculator is a free online tool for basic mathematical operations',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Basic Calculator is a free tool for basic math operations.',
+      keywords: ["basic calculator", "free basic calculator", "basic calculator", "simple calculation tool", "calculation tool", "online tool"]
     });
   }
 

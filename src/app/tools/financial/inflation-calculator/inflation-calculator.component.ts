@@ -50,10 +50,10 @@ export class InflationCalculatorComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Inflation Calculator - W3Tool',
+      title: 'Inflation Calculator',
       date: new Date(),
-      description: 'Inflation Calculator is a free online tool for calculating inflation rates for a given amount of money over a given period of time.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Inflation Calculator is a free tool for calculating inflation rates for a given amount of money over a given period of time.',
+      keywords: ["inflation rate calculator", "free inflation calculator", "inflation calculator", "inflation calculation tool", "inflation tool", "finance tool"]
     });
   }
 

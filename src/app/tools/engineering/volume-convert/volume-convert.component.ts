@@ -29,10 +29,10 @@ export class VolumeConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Volume Convert - W3Tool',
+      title: 'Volume Converter',
       date: new Date(),
-      description: 'Volume Converter is a free online tool for converting different volume units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Volume Converter is a free tool for converting between Cubic Meter, Cubic Kilometer, Cubic Centimerer, Cubic Millimeter, Liter, Gallon and more volume units.',
+      keywords: ["volume unit converter", "free volume converter", "volume converter", "volume conversion tool", "conversion tool", "online tool"]
     });
   }
 

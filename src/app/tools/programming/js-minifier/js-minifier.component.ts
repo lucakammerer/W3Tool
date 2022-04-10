@@ -17,10 +17,10 @@ export class JsMinifierComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'JavaScript Minifier - W3Tool',
+      title: 'JavaScript Minifier and Compressor',
       date: new Date(),
-      description: 'Minimize your JavaScript code for better performance. JavaScript minifier is a free online tool for minimizing large JavaScript files.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Minimize and compress your JavaScript code for a better performance. JavaScript minifier is a free online tool for minimizing large JavaScript files.',
+      keywords: ["js minifier", "free javascript minify", "javascript code compressor", "js minifier tool", "minify tool", "online tool"]
     });
   }
 

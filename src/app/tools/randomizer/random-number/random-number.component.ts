@@ -22,10 +22,10 @@ export class RandomNumberComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Random Number - W3Tool',
+      title: 'Random Number Picker - Get a random number',
       date: new Date(),
-      description: 'Random number is a free online tool for picking a random number',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Random number is a free online tool for picking a random number from 0 - 9.',
+      keywords: ["random number", "free random number picker", "randomizer", "random number tool", "random picker tool", "online tool"]
     });
   }
 

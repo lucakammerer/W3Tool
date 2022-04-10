@@ -17,10 +17,10 @@ export class TextLowercaseComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Text Lowercase - W3Tool',
+      title: 'Lowercase Converter - Convert a text to lowercase',
       date: new Date(),
-      description: 'Text Lowercase is a free tool to convert a text to lowercase.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Text Lowercase Converter is a free online tool for converting a text into lowercase characters.',
+      keywords: ["text lowercase converter", "free text converter", "lowercase converter", "lowercase conversion tool", "text conversion tool", "online tool"]
     });
   }
 

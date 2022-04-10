@@ -18,10 +18,10 @@ export class RandomItemComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Random Item - W3Tool',
+      title: 'Random Item Picker - Get a random list item',
       date: new Date(),
-      description: 'Random item is a free online tool for picking a random item from a list',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Random item is a free online tool for picking a random item from a given list.',
+      keywords: ["random item", "free random item picker", "randomizer", "random item tool", "random picker tool", "online tool"]
     });
   }
 

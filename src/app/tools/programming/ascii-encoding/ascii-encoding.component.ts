@@ -20,7 +20,7 @@ export class AsciiEncodingComponent implements OnInit {
       title: 'ASCII Encoder - W3Tool',
       date: new Date(),
       description: 'ASCII Encoder is a free online tool for encoding a text into a list of ASCII characters.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      keywords: ["ascii encoder", "free ascii encoder", "ascii code encoder", "ascii encoder tool", "encoding tool", "online tool"]
     });
   }
 

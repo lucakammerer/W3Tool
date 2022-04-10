@@ -14,10 +14,10 @@ export class RandomCharacterComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Random Character - W3Tool',
+      title: 'Random Character Picker - Get a random character',
       date: new Date(),
-      description: "Random character is a free online tool for picking a random character from this character list: [~, `, !, @, #, $, %, ^, &, *, &#40;, &#41;, -, _, +, =, &#0123;, &#0125;, [, ], |,  \,  /, :, ;, \", ', &lt;, &gt;, , , ., ?]",
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: "Random Character is a free online tool for picking a random character from this character list: [~, `, !, @, #, $, %, ^, &, *, &#40;, &#41;, -, _, +, =, &#0123;, &#0125;, [, ], |,  \,  /, :, ;, \", ', &lt;, &gt;, , , ., ?]",
+      keywords: ["random character", "free random character picker", "randomizer", "random character tool", "random picker tool", "online tool"]
     });
   }
 

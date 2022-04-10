@@ -15,10 +15,10 @@ export class RandomLetterComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Random Letter - W3Tool',
+      title: 'Random Letter Picker - Get a random letter',
       date: new Date(),
       description: 'Random letter is a free online tool for picking a random letter from this list: [A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z]',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      keywords: ["random letter", "free random letter picker", "randomizer", "random letter tool", "random picker tool", "online tool"]
     });
   }
 

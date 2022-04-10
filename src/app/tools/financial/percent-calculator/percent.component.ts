@@ -32,10 +32,10 @@ export class PercentComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Percent Calculator - W3Tool',
+      title: 'Percentage Calculator',
       date: new Date(),
-      description: 'Percentage Calculator is a free online tool for percentage calculations',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Percentage Calculator is a free tool to calculate percentages. What is % of ? %. is what percent of ? %. What is the percentage increase/decrease?',
+      keywords: ["percentage calculator", "free percentage calculator", "percentage calculator", "percentage calculation tool", "percentage tool", "online tool"]
     });
   }
 

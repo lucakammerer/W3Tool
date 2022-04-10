@@ -18,10 +18,10 @@ export class TextReverseComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Line Counter - W3Tool',
+      title: 'Text Reverse Converter - Reverse a text',
       date: new Date(),
-      description: 'Text Lowercase is a free tool to reverse a text.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Text Reverse Converter is a free online tool for reversing the characters of a text.',
+      keywords: ["text reverse converter", "free text reverser", "reverse converter", "reverse conversion tool", "text reverse tool", "online tool"]
     });
   }
 

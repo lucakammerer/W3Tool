@@ -30,10 +30,10 @@ export class PressureConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Pressure Converter - W3Tool',
+      title: 'Pressure Converter',
       date: new Date(),
-      description: 'Pressure Converter is a free online tool for converting different units of pressure',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Pressure Unit Converter is a free tool for converting between Pascal, Kilopascal, Bar, PSI, KSI and more units.',
+      keywords: ["pressure unit converter", "free converter", "pressure converter", "pressure conversion tool", "conversion tool", "online tool"]
     });
   }
 

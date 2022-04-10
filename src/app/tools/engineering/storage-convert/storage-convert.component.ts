@@ -30,10 +30,10 @@ export class StorageConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Storage Converter - W3Tool',
+      title: 'Data Storage Converter',
       date: new Date(),
-      description: 'Storage Converter is a free online tool for converting different weight and mass units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Data Storage Convertsion Tool is a free tool for converting between Bit, Byte, Kilobyte, Megabyte, Gigabyte, Terabyte, Petabyte, Exabyte and more storage units.',
+      keywords: ["data storage unit converter", "free converter", "data storage converter", "data conversion tool", "conversion tool", "online tool"]
     });
   }
 

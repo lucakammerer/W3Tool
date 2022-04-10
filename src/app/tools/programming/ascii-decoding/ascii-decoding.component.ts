@@ -17,10 +17,10 @@ export class AsciiDecodingComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'ASCII Decoder - W3Tool',
+      title: 'ASCII Decoder - Decode ASCII codes',
       date: new Date(),
-      description: 'ASCII Decoder is a free online tool for decoding a list of ASCII characters to a text.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The ASCII Decoder is a free tool for decoding a list of ASCII characters to a text.',
+      keywords: ["ascii decoder", "free ascii decoder", "ascii code decoder", "ascii decoder tool", "decoding tool", "online tool"]
     });
   }
 

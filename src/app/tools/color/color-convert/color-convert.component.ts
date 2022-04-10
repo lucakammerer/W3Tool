@@ -185,10 +185,10 @@ export class ColorConvertComponent {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Color Converter',
+      title: 'Convert a Color - RGB, HEX, CMYK, HSV, HSL',
       date: new Date(),
-      description: 'Convert RGB, HEX, CMYK, HSV, HSL and more. Color Converter is a free online tool for converting different color units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Convert colors between RGB, HEX, CMYK, HSV, HSL, LAB, XYZ, HWB and Keyword formats. Color Converter is a free and fast tool for converting colors.',
+      keywords: ["color converter", "color conversion tool", "free converter", "convert a color", "color unit converter", "color tool"]
     });
   }
 

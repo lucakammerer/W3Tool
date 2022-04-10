@@ -29,10 +29,10 @@ export class LengthConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Length Convert - W3Tool',
+      title: 'Length Converter Tool',
       date: new Date(),
-      description: 'Length Converter is a free online tool for converting different length units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Free length conversion tool for converting Meter, Kilometer, Decimeter, Centimeter and more units.',
+      keywords: ["length unit converter", "free length converter", "length converter", "length conversion", "conversion tool", "online tool"]
     });
   }
 

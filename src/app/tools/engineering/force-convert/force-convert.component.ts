@@ -29,10 +29,10 @@ export class ForceConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Force Convert - W3Tool',
+      title: 'Force Converter - Convert Force units',
       date: new Date(),
-      description: 'Energy Converter is a free online tool for converting different energy units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Force Unit Converter is a tool for converting between Newton, Kilonewton, Gram force and more units.',
+      keywords: ["force unit converter", "free converter", "force converter", "force conversion tool", "conversion tool", "online tool"]
     });
   }
 

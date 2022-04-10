@@ -67,10 +67,10 @@ export class CryptocurrencyConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Cryptocurrency Convert - W3Tool',
+      title: 'Cryptocurrency Converter - Convert between different Cryptocurrencies',
       date: new Date(),
-      description: 'Cryptocurrency Converter is a free online tool for converting different cryptocurrency units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Cryptocurrency Conversion Tool is a free tool for calculating between BTC (Bitcoin), ETH (Ethereum), ADA (Cardano), DOGE (Dogecoin) and more. The prices are refreshing permanently.',
+      keywords: ["cryptocurrency converter", "free cryptocurrency converter", "cryptocurrency calculator", "cryptocurrency calculation tool", "crypto currency", "cryptocurrency tool"]
     });
   }
 

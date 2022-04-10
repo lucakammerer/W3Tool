@@ -17,10 +17,10 @@ export class CssMinifierComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'CSS Minifier - W3Tool',
+      title: 'CSS Minifier and Compressor - Fast CSS',
       date: new Date(),
-      description: 'Minimize your CSS files for faster website speed. CSS Minifier is a free online tool for minimizing large CSS files.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Minimize and compress your CSS files for faster ode speed. CSS Minifier is a free online tool for minimizing large CSS files.',
+      keywords: ["css minifier", "free css minify", "css code compressor", "css minifier tool", "minify tool", "online tool"]
     });
   }
 

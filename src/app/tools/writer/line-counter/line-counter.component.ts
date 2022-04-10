@@ -16,10 +16,10 @@ export class LineCounterComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Line Counter - W3Tool',
+      title: 'Line Counter - Count the lines of a text',
       date: new Date(),
-      description: 'Line Counter is a free online tool for counting lines of large texts',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Line Counter is a free tool for counting the lines of large texts',
+      keywords: ["line counter", "free line counter", "counting text lines", "line counter tool", "line counting tool", "online tool"]
     });
   }
 

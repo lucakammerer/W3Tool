@@ -20,7 +20,7 @@ export class Base64EncodingComponent implements OnInit {
       title: 'Base64 Encoder - W3Tool',
       date: new Date(),
       description: 'Base64 Encoder is a free online tool for encoding a text to base64.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      keywords: ["base64 encoder", "free base64 encoder", "base64 code encoder", "base64 encoder tool", "encoding tool", "online tool"]
     });
   }
 

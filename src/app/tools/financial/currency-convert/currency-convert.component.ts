@@ -45,10 +45,10 @@ export class CurrencyConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Currency Convert - W3Tool',
+      title: 'Currency Converter',
       date: new Date(),
-      description: 'Currency Converter is a free online tool for converting different currency units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Currency Converter is a free tool for converting between USD, EURO, AUD, CAD, CHF and more currency units.',
+      keywords: ["currency converter", "free currency converter", "currency calculator", "currency calculation tool", " currency", "currency tool"]
     });
   }
 

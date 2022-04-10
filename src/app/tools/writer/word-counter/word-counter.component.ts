@@ -16,10 +16,10 @@ export class WordCounterComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Word Counter - W3Tool',
+      title: 'Word Counter - Count the number of words in a text',
       date: new Date(),
-      description: 'Word Counter is a free online tool for counting words of large texts',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Word Counter is a free online tool for counting the number of words in a large text',
+      keywords: ["word counter", "free word counter", "counting text words", "word counter tool", "word counting tool", "online tool"]
     });
   }
 

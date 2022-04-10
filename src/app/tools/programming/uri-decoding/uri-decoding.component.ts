@@ -20,7 +20,7 @@ export class UriDecodingComponent implements OnInit {
       title: 'URI Decoder',
       date: new Date(),
       description: 'URI Decoder is a free online tool for decoding an URI to a text.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      keywords: ["uri decoder", "free uri decoder", "uri code decoding", "uri decoding tool", "decoding tool", "online tool"]
     });
   }
 

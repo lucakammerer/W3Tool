@@ -30,9 +30,9 @@ export class AreaConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Area Converter - W3Tool',
+      title: 'Area Converter - Convert different area units',
       date: new Date(),
-      description: 'Area Converter is a free online tool for converting different area units',
+      description: 'Area Converter is a free tool for converting Acres, Square Feet, Square Centimeters, Square Meters, Square Miles and other metric area units.',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
     });
   }

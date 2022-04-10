@@ -29,10 +29,10 @@ export class TimeConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Time Convert - W3Tool',
+      title: 'Time Conversion Calculator',
       date: new Date(),
-      description: 'Time Converter is a free online tool for converting different time units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Time Converter is a free online tool for converting between Second, Millisecond, Minute, Hour, Day, Week, Month, Year and more time units.',
+      keywords: ["time unit converter", "free time converter", "time converter", "time conversion tool", "conversion tool", "online tool"]
     });
   }
 

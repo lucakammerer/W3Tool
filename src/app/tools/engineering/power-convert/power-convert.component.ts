@@ -30,10 +30,10 @@ export class PowerConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Power Converter - W3Tool',
+      title: 'Power Converter',
       date: new Date(),
-      description: 'Power Converter is a free online tool for converting different power units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Power Unit Converter tool is a free tool for converting Watt, Exawatt, Petawatt, Terawatt and more units.',
+      keywords: ["power unit converter", "free converter", "power converter", "power conversion tool", "conversion tool", "online tool"]
     });
   }
 

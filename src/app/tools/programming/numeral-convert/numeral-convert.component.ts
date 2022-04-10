@@ -30,10 +30,10 @@ export class NumeralConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Numeral Converter - W3Tool',
+      title: 'Numeral Converter - Convert Binary, Hexadecimal, Octal and Decimal system',
       date: new Date(),
-      description: 'Numerial Converter is a free online tool for converting different numeral systems, e.g. Hexadecimal, Binary, Decimal or Octal.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Numeral Conversion Tool is a free tool for converting between the Binary, Hexadecimal, Octal and Decimal system.',
+      keywords: ["numeral unit converter", "free binary hexadecimal converter", "octal binary converter", "hexadecimal octal conversion tool", "numeral tool", "online tool"]
     });
   }
 

@@ -17,10 +17,10 @@ export class TextUppercaseComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Line Counter - W3Tool',
+      title: 'Uppercase Converter - Convert a text to uppercase',
       date: new Date(),
-      description: 'Text Lowercase is a free tool to convert a text to uppercase.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Text Uppercase Converter is a free online tool for converting a text into uppercase characters.',
+      keywords: ["text uppercase converter", "free text converter", "uppercase converter", "uppercase conversion tool", "text conversion tool", "online tool"]
     });
   }
 

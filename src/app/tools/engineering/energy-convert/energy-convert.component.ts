@@ -29,10 +29,10 @@ export class EnergyConvertComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Energy Convert - W3Tool',
+      title: 'Energy Converter - Convert energy units',
       date: new Date(),
-      description: 'Energy Converter is a free online tool for converting different energy units',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'Energy Converter is a free converting tool for converting Joule, Kilojoule, Kilowatt hours, Horsepower and more.',
+      keywords: ["energy unit converter", "free converter", "energy converter", "energy conversion tool", "conversion tool", "online tool"]
     });
   }
 

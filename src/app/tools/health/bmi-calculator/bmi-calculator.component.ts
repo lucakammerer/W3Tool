@@ -20,10 +20,10 @@ export class BmiCalculatorComponent implements OnInit {
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'BMI Calculator - W3Tool',
+      title: 'BMI Calculator - Calculate your Body Mass Index',
       date: new Date(),
-      description: 'BMI is a free online tool for calculating your Body Mass Index.',
-      keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
+      description: 'The Simple Body Mass Index Calculator is a free simple tool for calculating your BMI value.',
+      keywords: ["bmi calculator", "free bmi calculator", "body mass index calculator", "bmi calculation tool", "health tool", "online tool"]
     });
   }
 
