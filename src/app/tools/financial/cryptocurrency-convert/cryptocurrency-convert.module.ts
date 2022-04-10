@@ -9,6 +9,10 @@ const routes: Routes = [
   {
     path: '',
     component: CryptocurrencyConvertComponent,
+  },
+  {
+    path: ':un',
+    component: CryptocurrencyConvertComponent,
   }
 ];
 

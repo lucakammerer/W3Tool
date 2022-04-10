@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MetaService } from 'src/app/services/meta.service';
 import apiKeys from 'src/assets/private/api-keys.json';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cryptocurrency-convert',
@@ -64,10 +65,11 @@ export class CryptocurrencyConvertComponent implements OnInit {
   apiKeyFiat = ""
 
   constructor(
+    private route: ActivatedRoute,
     public _metaTags: MetaService
   ) {
     _metaTags.setBasicMetaTags({
-      title: 'Cryptocurrency Converter - Convert between different Cryptocurrencies',
+      title: 'Cryptocurrency Converter - Convert between different Cryptocurrencies' + this.route.snapshot.params['un'],
       date: new Date(),
       description: 'The Cryptocurrency Conversion Tool is a free tool for calculating between BTC (Bitcoin), ETH (Ethereum), ADA (Cardano), DOGE (Dogecoin) and more. The prices are refreshing permanently.',
       keywords: ["cryptocurrency converter", "free cryptocurrency converter", "cryptocurrency calculator", "cryptocurrency calculation tool", "crypto currency", "cryptocurrency tool"]
@@ -289,6 +291,8 @@ export class CryptocurrencyConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.route.snapshot.params['un'])
+
     this.apiKeyCrypto = apiKeys["cryptocurrency"]
     this.apiKeyFiat = apiKeys["currency"]
   }
