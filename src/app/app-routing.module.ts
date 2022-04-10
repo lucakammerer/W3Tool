@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'basic-calculator', loadChildren: () => import('./tools/mathematics/basic-calculator/basic-calculator.module').then(m => m.BasicCalculatorModule) },
   { path: 'advanced-calculator', loadChildren: () => import('./tools/mathematics/advanced-calculator/advanced-calculator.module').then(m => m.AdvancedCalculatorModule) },
   { path: 'financial-calculator', loadChildren: () => import('./tools/mathematics/financial-calculator/financial-calculator.module').then(m => m.FinancialCalculatorModule) },
-  { path: 'percent', loadChildren: () => import('./tools/engineering/percent-calculator/percent-calculator.module').then(m => m.PercentCalculatorModule) },
+  { path: 'percent', loadChildren: () => import('./tools/financial/percent-calculator/percent-calculator.module').then(m => m.PercentCalculatorModule) },
   { path: 'programming-calculator', loadChildren: () => import('./tools/mathematics/programming-calculator/programming-calculator.module').then(m => m.ProgrammingCalculatorModule) },
   { path: 'color-picker', loadChildren: () => import('./tools/color/color-picker/color-picker.module').then(m => m.ColorPickerModule) },
   { path: 'random-number', loadChildren: () => import('./tools/randomizer/random-number/random-number.module').then(m => m.RandomNumberModule) },
@@ -54,6 +54,7 @@ const routes: Routes = [
   { path: 'text-reverse', loadChildren: () => import('./tools/writer/text-reverse/text-reverse.module').then(m => m.TextReverseModule) },
   { path: 'text-uppercase', loadChildren: () => import('./tools/writer/text-uppercase/text-uppercase.module').then(m => m.TextUppercaseModule) },
   { path: 'text-lowercase', loadChildren: () => import('./tools/writer/text-lowercase/text-lowercase.module').then(m => m.TextLowercaseModule) },
+  { path: 'bmi-calculator', loadChildren: () => import('./tools/health/bmi-calculator/bmi-calculator.module').then(m => m.BmiCalculatorModule) },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

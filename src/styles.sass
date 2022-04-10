@@ -109,7 +109,7 @@ input
 .checkbox-cover
   display: block
   position: relative
-  padding-left: 50px
+  padding-left: 35px
   margin-bottom: 12px
   cursor: pointer
   -webkit-user-select: none
@@ -117,7 +117,7 @@ input
   -ms-user-select: none
   user-select: none
 
-input[type="checkbox"]
+input[type="checkbox"], input[type="radio"]
   position: absolute
   opacity: 0
   cursor: pointer
@@ -149,6 +149,9 @@ input[type="checkbox"]
   -webkit-transform: rotate(45deg)
   -ms-transform: rotate(45deg)
   transform: rotate(45deg)
+
+.radio span
+  border-radius: 50%
 
 select
   padding: 5px

@@ -1,7 +1,6 @@
 export const tools = [
   ["-Mathematics"],
   ["Basic Calculator", "/basic-calculator"],
-  ["Percent Calculator", "/percent"],
 
   ["-Engineering"],
   ["Energy Converter", "/energy-convert"],
@@ -33,6 +32,10 @@ export const tools = [
   ["Currency Converter", "/currency-convert"],
   ["Cryptocurrency Converter", "/cryptocurrency-convert"],
   ["Inflation Calculator", "/inflation-calculator"],
+  ["Percent Calculator", "/percent"],
+
+  ["-Health"],
+  ["BMI Calculator", "/bmi-calculator"],
 
   ["-Writing"],
   ["Character Counter", "/character-counter"],

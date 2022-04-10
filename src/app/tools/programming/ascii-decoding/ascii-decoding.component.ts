@@ -31,9 +31,7 @@ export class AsciiDecodingComponent implements OnInit {
     var resultAsArray = []
 
     for(let i = 0; i < s.length; i++){
-      console.log(s[i])
       let code = String.fromCharCode(s[i]);
-      console.log(code)
       resultAsArray.push(code);
     }
 
@@ -43,4 +41,5 @@ export class AsciiDecodingComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 }

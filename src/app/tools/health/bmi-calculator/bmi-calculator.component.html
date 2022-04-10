@@ -1,0 +1,21 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+<div class="main">
+  <div class="content">
+    <div class="intro">
+      <h1>BMI Calculator</h1>
+      <p>BMI is a free online tool for calculating your Body Mass Index.</p>
+    </div>
+    <form [formGroup]="form" (ngSubmit)='calculate()'>
+      <fieldset formGroupName="values" class="box" id="calculate-value">
+        <label for="weight">Weight (kg)</label>
+        <input id="weight" name="weight" formControlName="weight" type="number">
+        <label for="height">Height (cm)</label>
+        <input id="height" name="height" formControlName="height" type="number">
+        <div class="text-center" id="value-answer">{{result}}</div>
+      </fieldset>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+  <app-footer></app-footer>
+</div>
