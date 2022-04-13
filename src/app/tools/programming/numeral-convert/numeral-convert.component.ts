@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -21,18 +22,28 @@ export class NumeralConvertComponent implements OnInit {
   });
 
   units = ["Decimal", "Binary", "Hexadecimal", "Octal"]
+  unitsAsUri = ["decimal", "binary", "hexadecimal", "octal"]
   defaultValues = [this.units[0], this.units[1]]
   valueInDecimal = "";
   currentValue = "";
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Numeral Converter - Convert Binary, Hexadecimal, Octal and Decimal system',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Numeral Converter'
+        : 'Numeral Converter - Convert Binary, Hexadecimal, Octal and Decimal system',
       date: new Date(),
-      description: 'The Numeral Conversion Tool is a free tool for converting between the Binary, Hexadecimal, Octal and Decimal system.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. The Numeral Conversion Tool is a free tool for converting between the Binary, Hexadecimal, Octal and Decimal system.'
+        : 'The Numeral Conversion Tool is a free tool for converting between the Binary, Hexadecimal, Octal and Decimal system.',
       keywords: ["numeral unit converter", "free binary hexadecimal converter", "octal binary converter", "hexadecimal octal conversion tool", "numeral tool", "online tool"]
     });
   }
@@ -71,6 +82,16 @@ export class NumeralConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

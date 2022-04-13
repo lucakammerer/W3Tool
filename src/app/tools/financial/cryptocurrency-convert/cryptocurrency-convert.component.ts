@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { MetaService } from 'src/app/services/meta.service';
 import apiKeys from 'src/assets/private/api-keys.json';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cryptocurrency-convert',
@@ -23,39 +24,8 @@ export class CryptocurrencyConvertComponent implements OnInit {
 
   activity: boolean = false;
 
-  units = [
-    "USD [United States Dollar]",
-    "EUR [Euro]",
-    "AUD [Australian Dollar]",
-    "CAD [Canadian Dollar]",
-    "CHF [Swiss Franc]",
-
-    "BTC [Bitcoin]",
-    "ETH [Ethereum]",
-    "USDT [Tether]",
-    "BNB [BNB]",
-    "USDC [USD Coin]",
-    "XRP [XRP]",
-    "LUNA [Terra]",
-    "ADA [Cardano]",
-    "SOL [Solana]",
-    "AVAX [Avalanche]",
-    "Dot [Polkadot]",
-    "BUSD [Binance USD]",
-    "DOGE [Dogecoin]",
-    "UST [TerraUSD]",
-    "SHIB [Shiba Inu]",
-    "MATIC [Polygon]",
-    "WBTC [Wrapped Bitcoin]",
-    "DAI [Dai]",
-    "CRO [Cronos]",
-    "ATOM [Cosmos]",
-    "LTC [Litecoin]",
-    "NEAR [NEAR Protocol]",
-    "LINK [Chainlink]",
-    "TRX [TRON]",
-    "UNI [Uniswap]",
-  ]
+  units = ["USD [United States Dollar]","EUR [Euro]","AUD [Australian Dollar]","CAD [Canadian Dollar]","CHF [Swiss Franc]","BTC [Bitcoin]","ETH [Ethereum]","USDT [Tether]","BNB [BNB]","USDC [USD Coin]","XRP [XRP]","LUNA [Terra]","ADA [Cardano]","SOL [Solana]","AVAX [Avalanche]","Dot [Polkadot]","BUSD [Binance USD]","DOGE [Dogecoin]","UST [TerraUSD]","SHIB [Shiba Inu]","MATIC [Polygon]","WBTC [Wrapped Bitcoin]","DAI [Dai]","CRO [Cronos]","ATOM [Cosmos]","LTC [Litecoin]","NEAR [NEAR Protocol]","LINK [Chainlink]","TRX [TRON]","UNI [Uniswap]"]
+  unitsAsUri = ["USD","EUR","AUD","CAD","CHF","BTC","ETH","USDT","BNB","USDC","XRP","LUNA","ADA","SOL","AVAX","Dot","BUSD","DOGE","UST","SHIB","MATIC","WBTC","DAI","CRO","ATOM","LTC","NEAR","LINK","TRX","UNI"]
   defaultValues = [this.units[0], this.units[1]]
   valueInUSD = 0;
   currentValue = 0;
@@ -66,12 +36,20 @@ export class CryptocurrencyConvertComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     public _metaTags: MetaService
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Cryptocurrency Converter - Convert between different Cryptocurrencies' + this.route.snapshot.params['un'],
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Cryptocurrency Converter Tool'
+        : 'Cryptocurrency Converter - Convert between different Cryptocurrencies',
       date: new Date(),
-      description: 'The Cryptocurrency Conversion Tool is a free tool for calculating between BTC (Bitcoin), ETH (Ethereum), ADA (Cardano), DOGE (Dogecoin) and more. The prices are refreshing permanently.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. The Cryptocurrency Conversion Tool is a free tool for calculating between BTC (Bitcoin), ETH (Ethereum), ADA (Cardano), DOGE (Dogecoin) and more. The prices are refreshing permanently.'
+        : 'The Cryptocurrency Conversion Tool is a free tool for calculating between BTC (Bitcoin), ETH (Ethereum), ADA (Cardano), DOGE (Dogecoin) and more. The prices are refreshing permanently.',
       keywords: ["cryptocurrency converter", "free cryptocurrency converter", "cryptocurrency calculator", "cryptocurrency calculation tool", "crypto currency", "cryptocurrency tool"]
     });
   }
@@ -291,7 +269,17 @@ export class CryptocurrencyConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.params['un'])
+
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
 
     this.apiKeyCrypto = apiKeys["cryptocurrency"]
     this.apiKeyFiat = apiKeys["currency"]

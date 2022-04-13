@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -21,18 +22,28 @@ export class PressureConvertComponent implements OnInit {
   });
 
   units = ["pascal [Pa]","kilopascal [kPa]","bar","psi [psi]","ksi [ksi]","Standard atmosphere [atm]","exapascal [EPa]","petapascal [PPa]","terapascal [TPa]","gigapascal [GPa]","megapascal [MPa]","hectopascal [hPa]","dekapascal [daPa]","decipascal [dPa]","centipascal [cPa]","millipascal [mPa]","micropascal [µPa]","nanopascal [nPa]"]
+  unitsAsUri = ["pascal", "kilopascal", "bar", "psi", "ksi", "standard atmosphere", "exapascal", "petapascal", "terapascal", "gigapascal", "megapascal", "hectopascal", "dekapascal", "decipascal", "centipascal", "millipascal", "micropascal", "nanopascal"]
   defaultValues = [this.units[0], this.units[1]]
   valueInPascal = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Pressure Converter',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Pressure Converter'
+        : 'Pressure Converter',
       date: new Date(),
-      description: 'Pressure Unit Converter is a free tool for converting between Pascal, Kilopascal, Bar, PSI, KSI and more units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Pressure Unit Converter is a free tool for converting between Pascal, Kilopascal, Bar, PSI, KSI and more units.'
+        : 'Pressure Unit Converter is a free tool for converting between Pascal, Kilopascal, Bar, PSI, KSI and more units.',
       keywords: ["pressure unit converter", "free converter", "pressure converter", "pressure conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -155,6 +166,16 @@ export class PressureConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

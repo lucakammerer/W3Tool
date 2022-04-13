@@ -1,5 +1,6 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { MetaService } from 'src/app/services/meta.service';
   templateUrl: './color-convert.component.html',
   styleUrls: ['./color-convert.component.sass']
 })
-export class ColorConvertComponent {
+export class ColorConvertComponent implements OnInit {
 
   @ViewChild('active')
   activeColor: ElementRef<HTMLDivElement>;
@@ -24,9 +25,10 @@ export class ColorConvertComponent {
   });
 
   units = ["HEX", "RGB", "CMYK", "HSV", "HSL", "LAB", "XYZ", "HWB", "Keyword"]
+  unitsAsUri = ["hex", "rgb", "cmyk", "hsv", "hsl", "lab", "xyz", "hwb", "keyword"]
   unitExamples = ["e.g. #000000", "e.g. 0, 0, 0, 1", "e.g. 0, 0, 0, 100", "e.g. 44, 0, 0", "e.g. 0, 0, 0", "e.g. 0, 0, 0", "e.g. 0, 0, 0", "e.g. 0, 0, 100", "e.g. black"]
   currentExample = this.unitExamples[0];
-  selectedValues = [this.units[0], this.units[1]]
+  defaultValues = [this.units[0], this.units[1]]
   valueInRGB = [0, 0, 0];
   currentValue = "";
   result = "";
@@ -182,18 +184,28 @@ export class ColorConvertComponent {
 };
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Convert a Color - RGB, HEX, CMYK, HSV, HSL',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Color Converter Tool'
+        : 'Convert a Color - RGB, HEX, CMYK, HSV, HSL',
       date: new Date(),
-      description: 'Convert colors between RGB, HEX, CMYK, HSV, HSL, LAB, XYZ, HWB and Keyword formats. Color Converter is a free and fast tool for converting colors.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Convert colors between RGB, HEX, CMYK, HSV, HSL, LAB, XYZ, HWB and Keyword formats. Color Converter is a free and fast tool for converting colors.'
+        : 'Convert colors between RGB, HEX, CMYK, HSV, HSL, LAB, XYZ, HWB and Keyword formats. Color Converter is a free and fast tool for converting colors.',
       keywords: ["color converter", "color conversion tool", "free converter", "convert a color", "color unit converter", "color tool"]
     });
   }
 
   changeExample (){
-    switch(this.selectedValues[0]) {
+    switch(this.defaultValues[0]) {
       case this.units[0]:
         this.currentExample = this.unitExamples[0]
         break;
@@ -693,6 +705,20 @@ export class ColorConvertComponent {
     }
 
     this.activeColor.nativeElement.style.backgroundColor = "rgb(" + this.rgbString + ")";
+  }
+
+  ngOnInit() {
+
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

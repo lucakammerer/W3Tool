@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 import apiKeys from 'src/assets/private/api-keys.json';
 
@@ -22,18 +23,8 @@ export class CurrencyConvertComponent implements OnInit {
 
   activity: boolean = false;
 
-  units = [
-    "USD [United States Dollar]",
-    "EUR [Euro]",
-    "AUD [Australian Dollar]",
-    "CAD [Canadian Dollar]",
-    "CHF [Swiss Franc]",
-    "CNY [Chinese Yuan]",
-    "GBP [British Pound Sterling]",
-    "INR [Indian Rupee]",
-    "JPY [Japanese Yen]",
-    "MXN [Mexican Peso]",
-  ]
+  units = ["USD [United States Dollar]","EUR [Euro]","AUD [Australian Dollar]","CAD [Canadian Dollar]","CHF [Swiss Franc]","CNY [Chinese Yuan]","GBP [British Pound Sterling]","INR [Indian Rupee]","JPY [Japanese Yen]","MXN [Mexican Peso]",]
+  unitsAsUri = ["USD", "EUR", "AUD", "CAD", "CHF", "CNY", "GBP", "INR", "JPY", "MXN"]
   defaultValues = [this.units[0], this.units[1]]
   valueInUSD = 0;
   currentValue = 0;
@@ -42,12 +33,21 @@ export class CurrencyConvertComponent implements OnInit {
   apiKey = ""
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Currency Converter',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Currency Converter'
+        : 'Currency Converter',
       date: new Date(),
-      description: 'The Currency Converter is a free tool for converting between USD, EURO, AUD, CAD, CHF and more currency units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. The Currency Converter is a free tool for converting between USD, EURO, AUD, CAD, CHF and more currency units.'
+        : 'The Currency Converter is a free tool for converting between USD, EURO, AUD, CAD, CHF and more currency units.',
       keywords: ["currency converter", "free currency converter", "currency calculator", "currency calculation tool", " currency", "currency tool"]
     });
   }
@@ -140,6 +140,17 @@ export class CurrencyConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
+
     this.apiKey = apiKeys["currency"]
   }
 

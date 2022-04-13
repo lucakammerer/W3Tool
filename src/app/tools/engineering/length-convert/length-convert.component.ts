@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -20,18 +21,28 @@ export class LengthConvertComponent implements OnInit {
   });
 
   units = ["meter [m]", "kilometer [km]", "decimeter [dm]", "centimeter [cm]", "millimeter [mm]", "micrometer [µm]", "nanometer [nm]", "mile [mi]", "yard [yd]", "foot [ft]", "inch [in]", "light year [ly]", "exameter [Em]", "petameter [Pm]", "terameter [Tm]", "gigameter [Gm]"]
+  unitsAsUri = ["meter", "kilometer", "decimeter", "centimeter", "millimeter", "micrometer", "nanometer", "mile", "yard", "foot", "inch", "light year", "exameter", "petameter", "terameter", "gigameter"]
   defaultValues = [this.units[0], this.units[1]]
   valueInMeter = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Length Converter Tool',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Length Converter Tool'
+        : 'Length Converter Tool',
       date: new Date(),
-      description: 'Free length conversion tool for converting Meter, Kilometer, Decimeter, Centimeter and more units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Free length conversion tool for converting Meter, Kilometer, Decimeter, Centimeter and more units.'
+        : 'Free length conversion tool for converting Meter, Kilometer, Decimeter, Centimeter and more units.',
       keywords: ["length unit converter", "free length converter", "length converter", "length conversion", "conversion tool", "online tool"]
     });
   }
@@ -142,6 +153,16 @@ export class LengthConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

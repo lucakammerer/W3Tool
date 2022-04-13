@@ -7,6 +7,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
+    path: ':un',
+    component: EnergyConvertComponent,
+  },
+  {
     path: '',
     component: EnergyConvertComponent,
   }

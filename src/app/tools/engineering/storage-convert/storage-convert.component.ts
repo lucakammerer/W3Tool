@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -20,19 +21,30 @@ export class StorageConvertComponent implements OnInit {
     }),
   });
 
-  units = ["bit [b]", "nibble", "byte [B]", "character", "word", "MAPM-word","quadruple-word","block","kilobit [kb]","kilobyte [kB]","kilobyte (10³ bytes)","megabit [Mb]","megabyte [MB]","megabyte [10⁶ bytes]","gigabit [Gb]","gigabyte [GB]","gigabyte [10⁹]","terabit [Tb]","terabyte [TB]","terabyte [10¹²]","petabit [Pb]","petabyte [PB]","petabyte [10¹⁵]","exabit [Eb]","exabyte [EB]","exabyte [10¹⁸]"]
+  units = ["bit [b]", "nibble", "byte [B]", "character", "word", "MAPM-word","quadruple-word","block","kilobit [kb]","kilobyte [kB]","kilobyte (10³ bytes)","megabit [Mb]","megabyte [MB]","megabyte [10⁶ bytes]","gigabit [Gb]","gigabyte [GB]","gigabyte [10⁹]","terabit [Tb]","terabyte [TB]","terabyte [10^12]","petabit [Pb]","petabyte [PB]","petabyte [10^13]","exabit [Eb]","exabyte [EB]","exabyte [10^15]"]
+  unitsAsUri = ["bit", "nibble", "byte", "character", "word", "mapm word", "quadruple word", "block", "kilobit", "kilobyte", "kilobyte (10^3)", "megabit", "megabyte", "megabyte [10^6]", "gigabit", "gigabyte", "gigabyte", "terabit", "terabyte", "terabyte [10^12]", "petabit", "petabyte", "petabyte [10^13]", "exabit", "exabyte", "exabyte [10^15]"]
   defaultValues = [this.units[0], this.units[1]]
   valueInByte = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    console.log(this.route)
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Data Storage Converter',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Data Storage Converter'
+        : 'Data Storage Converter',
       date: new Date(),
-      description: 'The Data Storage Convertsion Tool is a free tool for converting between Bit, Byte, Kilobyte, Megabyte, Gigabyte, Terabyte, Petabyte, Exabyte and more storage units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. The Data Storage Convertsion Tool is a free tool for converting between Bit, Byte, Kilobyte, Megabyte, Gigabyte, Terabyte, Petabyte, Exabyte and more storage units.'
+        : 'The Data Storage Convertsion Tool is a free tool for converting between Bit, Byte, Kilobyte, Megabyte, Gigabyte, Terabyte, Petabyte, Exabyte and more storage units.',
       keywords: ["data storage unit converter", "free converter", "data storage converter", "data conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -203,6 +215,18 @@ export class StorageConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        console.log(routes)
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

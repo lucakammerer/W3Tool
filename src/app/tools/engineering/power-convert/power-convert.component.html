@@ -32,6 +32,11 @@
         </fieldset>
       </div>
       <button type="submit">Calculate</button>
+      <div class="box">
+        <div *ngFor="let x of unitsAsUri">
+          <a *ngFor="let y of unitsAsUri" href="power-convert/{{x}}-{{y}}"></a>
+        </div>
+      </div>
     </form>
   </div>
   <app-footer></app-footer>

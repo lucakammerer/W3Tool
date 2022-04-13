@@ -1,6 +1,7 @@
 import { FormGroup, FormControl } from '@angular/forms';
 import { MetaService } from './../../../services/meta.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-magnet-convert',
@@ -20,19 +21,29 @@ export class MagnetConvertComponent implements OnInit {
     }),
   });
 
-  units = ["Tesla [T]", "milliTesla [mT]", "Ampere/Meter [A/m]", "Ampere/Centimeter [A/cm]", "kiloAmpere/Meter [kA/m]", "Gauss [G]","Oersted [Oe]","Weber/m2 [Wb/m2]"]
+  units = ["Tesla [T]", "milliTesla [mT]", "Ampere/Meter [A/m]", "Ampere/Centimeter [A/cm]", "kiloAmpere/Meter [kA/m]", "Gauss [G]", "Oersted [Oe]","Weber/m2 [Wb/m2]"]
+  unitsAsUri = ["tesla", "millitesla", "ampere meter", "ampere centimeter", "kiloampere meter", "gauss", "oersted", "weber m2"]
   defaultValues = [this.units[0], this.units[1]]
   valueInByte = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Magnetic Units Converter - Convert different magnet units',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Magnet Converter Tool'
+        : 'Magnetic Units Converter - Convert different magnet units',
       date: new Date(),
-      description: 'Magnetic unit converter is a free tool for converting between Tesla, Millitesla, Ampere per Meter, Gauss and more.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Magnetic unit converter is a free tool for converting between Tesla, Millitesla, Ampere per Meter, Gauss and more.'
+        : 'Magnetic unit converter is a free tool for converting between Tesla, Millitesla, Ampere per Meter, Gauss and more.',
       keywords: ["magnetic unit converter", "free length converter", "magnet converter", "magnet conversion", "conversion tool", "online tool"]
     });
   }
@@ -95,6 +106,16 @@ export class MagnetConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

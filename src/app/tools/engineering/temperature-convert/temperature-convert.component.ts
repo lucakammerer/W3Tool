@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -20,18 +21,28 @@ export class TemperatureConvertComponent implements OnInit {
   });
 
   units = ["kelvin [K]", "Celsius [°C]", "Fahrenheit [°F]", "Rankine [°R]", "Reaumur [°r]", "Triple point of water"]
+  unitsAsUri = ["kelvin", "celsius", "fahrenheit", "rankine", "reaumur", "triple point of water"]
   defaultValues = [this.units[0], this.units[1]]
   valueInCelsius = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Temperature Converter',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Temperature Converter'
+        : 'Temperature Converter',
       date: new Date(),
-      description: 'Temperature Conversion Tool is a free tool to convert between Kelvin, Celsius, Fahrenheit, Rankine and other temperature units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Temperature Conversion Tool is a free tool to convert between Kelvin, Celsius, Fahrenheit, Rankine and other temperature units.'
+        : 'Temperature Conversion Tool is a free tool to convert between Kelvin, Celsius, Fahrenheit, Rankine and other temperature units.',
       keywords: ["temperature unit converter", "free temperature converter", "temperature converter", "temperature conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -82,6 +93,16 @@ export class TemperatureConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

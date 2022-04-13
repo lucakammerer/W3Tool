@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -20,18 +21,28 @@ export class TimeConvertComponent implements OnInit {
   });
 
   units = ["second [s]", "millisecond [ms]", "minute [min]", "hour [h]", "day [d]", "week", "month", "year [y]", "decade", "century", "millennium", "microsecond [µs]", "nanosecond [ns]"]
+  unitsAsUri = ["second", "millisecond", "minute", "hour", "day", "week", "month", "year", "decade", "century", "millennium", "microsecond", "nanosecond"]
   defaultValues = [this.units[0], this.units[1]]
   valueInSecond = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Time Conversion Calculator',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Time Conversion Calculator'
+        : 'Time Conversion Calculator',
       date: new Date(),
-      description: 'The Time Converter is a free online tool for converting between Second, Millisecond, Minute, Hour, Day, Week, Month, Year and more time units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. The Time Converter is a free online tool for converting between Second, Millisecond, Minute, Hour, Day, Week, Month, Year and more time units.'
+        : 'The Time Converter is a free online tool for converting between Second, Millisecond, Minute, Hour, Day, Week, Month, Year and more time units.',
       keywords: ["time unit converter", "free time converter", "time converter", "time conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -124,6 +135,16 @@ export class TimeConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

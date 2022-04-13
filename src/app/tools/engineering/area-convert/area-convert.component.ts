@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -21,18 +22,28 @@ export class AreaConvertComponent implements OnInit {
   });
 
   units = ["square meter [m²]", "square kilometer [km²]","square centimeter [cm²]","square millimeter [mm²]","square micrometer [µm²]","hectare [ha]","acre [ac]","square mile [mi²]","square yard [yd²]","square foot [ft²]","square inch [in²]","square hectometer [hm²]","square dekameter [dam²]","square decimeter [dm²]","square nanometer [nm²]"]
+  unitsAsUri = ["square meter", "square kilometer", "square centimeter", "square millimeter", "square micrometer", "hectare", "acre", "square mile", "square yard", "square foot", "square inch", "square hectometer", "square dekameter", "square decimeter", "square nanometer"]
   defaultValues = [this.units[0], this.units[1]]
   valueInSquareMeter = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Area Converter - Convert different area units',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Area Converter Tool'
+        : 'Area Converter - Convert different area units',
       date: new Date(),
-      description: 'Area Converter is a free tool for converting Acres, Square Feet, Square Centimeters, Square Meters, Square Miles and other metric area units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Area Converter is a free tool for converting Acres, Square Feet, Square Centimeters, Square Meters, Square Miles and other metric area units.'
+        : 'Area Converter is a free tool for converting Acres, Square Feet, Square Centimeters, Square Meters, Square Miles and other metric area units.',
       keywords: ["online tools", "converter", "calculator", "random generator", "color picker", "word counter"]
     });
   }
@@ -137,6 +148,16 @@ export class AreaConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

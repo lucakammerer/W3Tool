@@ -6,6 +6,12 @@ import { SharedModule } from 'src/app/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+
+
+  {
+    path: ':un',
+    component: ColorConvertComponent,
+  },
   {
     path: '',
     component: ColorConvertComponent,

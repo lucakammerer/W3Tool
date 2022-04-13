@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -20,18 +21,28 @@ export class VolumeConvertComponent implements OnInit {
   });
 
   units = ["cubic meter [m³]", "cubic kilometer [km³]", "cubic centimeter [cm³]", "cubic millimeter [mm³]", "liter [L]", "milliliter [mL]", "gallon [gal]", "quart [qt]", "pint [pt]", "cup"]
+  unitsAsUri = ["cubic meter", "cubic kilometer", "cubic centimeter", "cubic millimeter", "liter", "milliliter", "gallon", "quart", "pint", "cup"]
   defaultValues = [this.units[0], this.units[1]]
   valueInCubicMeter = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Volume Converter',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Volume Converter'
+        : 'Volume Converter',
       date: new Date(),
-      description: 'Volume Converter is a free tool for converting between Cubic Meter, Cubic Kilometer, Cubic Centimerer, Cubic Millimeter, Liter, Gallon and more volume units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Volume Converter is a free tool for converting between Cubic Meter, Cubic Kilometer, Cubic Centimerer, Cubic Millimeter, Liter, Gallon and more volume units.'
+        : 'Volume Converter is a free tool for converting between Cubic Meter, Cubic Kilometer, Cubic Centimerer, Cubic Millimeter, Liter, Gallon and more volume units.',
       keywords: ["volume unit converter", "free volume converter", "volume converter", "volume conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -106,6 +117,16 @@ export class VolumeConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 

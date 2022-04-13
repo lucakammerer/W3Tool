@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -20,19 +21,29 @@ export class PowerConvertComponent implements OnInit {
     }),
   });
 
-  units = ["watt [W]", "exawatt [EW]","petawatt [PW]","terawatt [TW]","gigawatt [GW]","megawatt [MW]","kilowatt [kW]","hectowatt [hW]","dekawatt [daW]","deciwatt [dW]","centiwatt [cW]","milliwatt [mW]","microwatt [µW]","nanowatt [nW]","picowatt [pW]","femtowatt [fW]","attowatt [aW]","horsepower [hp, hp (UK)]","horsepower (550 ft*lbf/s)","horsepower (metric)","horsepower (boiler)","horsepower (electric)","horsepower (water)","pferdestärke (ps)","Btu (IT)/hour [Btu/h]","Btu (IT)/minute [Btu/min]","Btu (IT)/second [Btu/s]","Btu (th)/hour [Btu (th)/s]","Btu (th)/minute","Btu (th)second [Btu (th)/s]", "ton (refrigeration)"]
+  units = ["watt [W]", "exawatt [EW]","petawatt [PW]","terawatt [TW]","gigawatt [GW]","megawatt [MW]","kilowatt [kW]","hectowatt [hW]","dekawatt [daW]","deciwatt [dW]","centiwatt [cW]","milliwatt [mW]","microwatt [µW]","nanowatt [nW]","picowatt [pW]","femtowatt [fW]","attowatt [aW]","horsepower [hp, hp (UK)]","horsepower (550 ft*lbf/s)","horsepower (metric)","horsepower (boiler)","horsepower (electric)","horsepower (water)","pferdestärke (ps)","Btu (IT)/hour [Btu/h]","Btu (IT)/minute [Btu/min]","Btu (IT)/second [Btu/s]","Btu (th)/hour [Btu (th)/h]","Btu [Btu (th)/minute]","Btu (th)second [Btu (th)/s]", "ton (refrigeration)"]
+  unitsAsUri = ["watt", "exawatt", "petawatt", "terawatt", "gigawatt", "megawatt", "kilowatt", "hectowatt", "dekawatt", "deciwatt", "centiwatt", "milliwatt", "microwatt", "nanowatt", "picowatt", "femtowatt", "attowatt", "horsepower (UK)", "horsepower (550 ft*lbf/s)", "horsepower (metric)", "horsepower (boiler)", "horsepower (electric)", "horsepower (water)", "pferdestaerke", "btu hour", "btu minute", "btu second", "btu hour [th/h]", "btu minute [th/minute]", "btu second [th/s]", "ton [refrigeration]"]
   defaultValues = [this.units[0], this.units[1]]
   valueInWatt = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Power Converter',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Power Converter'
+        : 'Power Converter',
       date: new Date(),
-      description: 'Power Unit Converter tool is a free tool for converting Watt, Exawatt, Petawatt, Terawatt and more units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Power Unit Converter tool is a free tool for converting Watt, Exawatt, Petawatt, Terawatt and more units.'
+        : 'Power Unit Converter tool is a free tool for converting Watt, Exawatt, Petawatt, Terawatt and more units.',
       keywords: ["power unit converter", "free converter", "power converter", "power conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -233,6 +244,16 @@ export class PowerConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

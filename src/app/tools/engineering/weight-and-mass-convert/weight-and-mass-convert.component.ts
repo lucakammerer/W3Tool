@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from 'src/app/services/meta.service';
 
 @Component({
@@ -21,18 +22,28 @@ export class WeightAndMassConvertComponent implements OnInit {
   });
 
   units = ["kilogram [kg]", "gram [g]", "milligram [mg]", "ton (metric) [t]", "ounce [oz]", "carat [car, ct]", "ton (short) [ton (US)]", "ton (long) [ton (UK)]", "Atomic mass unit [u]", "exagram [Eg]", "petagram [Pg]", "teragram [Tg]", "gigagram [Gg]", "megagram [Mg]"]
+  unitsAsUri = ["kilogram", "gram", "milligram", "ton", "ounce", "carat", "ton [US]", "ton [UK]", "Atomic mass unit", "exagram", "petagram", "teragram", "gigagram", "megagram"]
   defaultValues = [this.units[0], this.units[1]]
   valueInKilogram = 0;
   currentValue = 0;
   result = "";
 
   constructor(
-    public _metaTags: MetaService
+    public _metaTags: MetaService,
+    private route: ActivatedRoute,
+    private router: Router,
   ) {
+    var routeUrl = this.route.snapshot.params['un'];
+    routeUrl ? routeUrl = routeUrl.split("-") : routeUrl
+
     _metaTags.setBasicMetaTags({
-      title: 'Weight and Mass Converter - Convert Weight and Mass units',
+      title: this.route.snapshot.params['un'] != null
+        ? routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + ' - Weight and Mass Converter'
+        : 'Weight and Mass Converter - Convert Weight and Mass units',
       date: new Date(),
-      description: 'Weight and Mass Converter is a free tool for converting between kilogram, gram, milligram, ton, ounce, carat and more weight and mass units.',
+      description: this.route.snapshot.params['un'] != null
+        ? 'Convert' + routeUrl[0].toUpperCase() + ' to ' + routeUrl[1].toUpperCase() + '. Weight and Mass Converter is a free tool for converting between kilogram, gram, milligram, ton, ounce, carat and more weight and mass units.'
+        : 'Weight and Mass Converter is a free tool for converting between kilogram, gram, milligram, ton, ounce, carat and more weight and mass units.',
       keywords: ["weight and mass unit converter", "free weight and mass converter", "weight and mass converter", "weight and mass conversion tool", "conversion tool", "online tool"]
     });
   }
@@ -137,6 +148,16 @@ export class WeightAndMassConvertComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    var routes = this.route.snapshot.params['un'];
+
+    if (routes != null) {
+      routes = routes.split("-")
+
+      if (this.unitsAsUri.includes(routes[0].toLowerCase()) && this.unitsAsUri.includes(routes[1].toLowerCase())) {
+        this.defaultValues[0] = this.units[this.unitsAsUri.indexOf(routes[0].toLowerCase())]
+        this.defaultValues[1] = this.units[this.unitsAsUri.indexOf(routes[1].toLowerCase())]
+      }
+    }
   }
 
 }

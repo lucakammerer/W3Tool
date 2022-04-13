@@ -7,6 +7,10 @@ import { MagnetConvertComponent } from './magnet-convert.component';
 
 const routes: Routes = [
   {
+    path: ':un',
+    component: MagnetConvertComponent,
+  },
+  {
     path: '',
     component: MagnetConvertComponent,
   }
